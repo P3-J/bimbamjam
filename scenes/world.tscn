@@ -1,0 +1,22 @@
+[gd_scene load_steps=2 format=3 uid="uid://ddbau1qirvb4"]
+
+[ext_resource type="Script" uid="uid://c0bgormvmald" path="res://scripts/World.cs" id="1_nnsk1"]
+
+[node name="world" type="Node2D" node_paths=PackedStringArray("textbox")]
+script = ExtResource("1_nnsk1")
+textbox = NodePath("targettext")
+
+[node name="targettext" type="RichTextLabel" parent="."]
+offset_left = 470.0
+offset_top = 186.0
+offset_right = 654.0
+offset_bottom = 226.0
+
+[node name="Button" type="Button" parent="."]
+offset_left = 484.0
+offset_top = 271.0
+offset_right = 638.0
+offset_bottom = 317.0
+text = "click me"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
