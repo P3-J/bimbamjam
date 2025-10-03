@@ -1,0 +1,236 @@
+[gd_scene load_steps=18 format=3 uid="uid://dv8y67d52w146"]
+
+[ext_resource type="Script" uid="uid://dhh7ay275tdd6" path="res://scripts/MainMenu.cs" id="1_mae5d"]
+[ext_resource type="Texture2D" uid="uid://bjivpaax11lpb" path="res://assets/kalev_pohjakonn_mainmenu.png" id="1_ouk20"]
+[ext_resource type="FontFile" uid="uid://dxl0xtmlx4yhh" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="2_mae5d"]
+[ext_resource type="Texture2D" uid="uid://bqbo0dph0qjle" path="res://assets/bg_clouds_parallax.png" id="2_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://dr8s8tnl80lmx" path="res://assets/title_mainmenu.png" id="4_4hy44"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hy44"]
+texture = ExtResource("1_ouk20")
+modulate_color = Color(0.8346143, 0.8346143, 0.8346143, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vsb4k"]
+bg_color = Color(0.99817616, 0.7774641, 0.6438218, 0.6)
+draw_center = false
+border_blend = true
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ytr4m"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0, 0, 0, 0.6)
+draw_center = false
+border_blend = true
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.55295557, 0.55295557, 0.55295545, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mae5d"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+bg_color = Color(1, 0.7921569, 0.4745098, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.55295557, 0.55295557, 0.55295545, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(1, 0.7921569, 0.4745098, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="Animation" id="Animation_ytr4m"]
+resource_name = "BreatheTitle"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2.9666667, 6),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.3), Vector2(0.39, 0.293), Vector2(0.4, 0.3)]
+}
+
+[sub_resource type="Animation" id="Animation_l48gv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.4, 0.3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ecwwl"]
+_data = {
+&"BreatheTitle": SubResource("Animation_ytr4m"),
+&"RESET": SubResource("Animation_l48gv")
+}
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mae5d")
+
+[node name="BackgroundParallax2D" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundParallax2D"]
+
+[node name="SkyParallax" type="Sprite2D" parent="BackgroundParallax2D/ParallaxLayer"]
+texture = ExtResource("2_ytr4m")
+centered = false
+
+[node name="AnimTitle" type="CanvasLayer" parent="."]
+layer = -100
+
+[node name="ColorRect" type="ColorRect" parent="AnimTitle"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.24313726, 1, 1, 1)
+
+[node name="Background" type="Panel" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_4hy44")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -256.0
+offset_right = 456.0
+offset_bottom = -64.0
+grow_vertical = 0
+theme_override_constants/separation = 8
+
+[node name="NewButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_vsb4k")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
+theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mae5d")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+text = "New Game"
+
+[node name="NewButtonShadow" type="Label" parent="VBoxContainer/NewButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.5
+offset_top = -11.5
+offset_right = 48.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(1, 1, 1, 0)
+theme_override_colors/font_shadow_color = Color(0.0035003442, 0.015483555, 0.0011759478, 0)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+text = "New Game"
+
+[node name="SettingssButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4hy44")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+text = "Settings"
+
+[node name="ExitButton" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
+theme_override_fonts/font = ExtResource("2_mae5d")
+theme_override_font_sizes/font_size = 30
+theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ytr4m")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+text = "Exit"
+
+[node name="Title" type="Sprite2D" parent="."]
+position = Vector2(504, 141)
+scale = Vector2(0.4, 0.3)
+texture = ExtResource("4_4hy44")
+
+[node name="TitleAnimation" type="AnimationPlayer" parent="Title"]
+libraries = {
+&"": SubResource("AnimationLibrary_ecwwl")
+}
+autoplay = "BreatheTitle"
