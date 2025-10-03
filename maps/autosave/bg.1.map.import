@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dhj87l2sxr6lq"
+path="res://.godot/imported/bg.1.map-544c1fce76447493f700b8837102886f.tres"
+
+[deps]
+
+source_file="res://maps/autosave/bg.1.map"
+dest_files=["res://.godot/imported/bg.1.map-544c1fce76447493f700b8837102886f.tres"]
+
+[params]
+
