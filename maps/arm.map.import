@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://u200y5lxsbfq"
+path="res://.godot/imported/arm.map-6deca4a8149a7b32a80a562fbfef16cc.tres"
+
+[deps]
+
+source_file="res://maps/arm.map"
+dest_files=["res://.godot/imported/arm.map-6deca4a8149a7b32a80a562fbfef16cc.tres"]
+
+[params]
+
