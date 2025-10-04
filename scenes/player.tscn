@@ -1,9 +1,10 @@
-[gd_scene load_steps=26 format=4 uid="uid://bpcmk0higwelb"]
+[gd_scene load_steps=43 format=4 uid="uid://bpcmk0higwelb"]
 
 [ext_resource type="Script" uid="uid://87rbybk6e5wx" path="res://scripts/Player.cs" id="1_g2els"]
 [ext_resource type="Material" uid="uid://cdyfq2i00s386" path="res://textures/128x128/Brick/Brick_13-128x128.tres" id="2_qhqgy"]
 [ext_resource type="Material" uid="uid://7bcckycq6i0f" path="res://textures/128x128/Metal/Metal_06-128x128.tres" id="3_dqkch"]
 [ext_resource type="Texture2D" uid="uid://dvasct7o7igc8" path="res://textures/128x128/Brick/Brick_14-128x128.png" id="4_dqkch"]
+[ext_resource type="PackedScene" uid="uid://bnxlrxrhv3gdc" path="res://scenes/frogplayer.tscn" id="5_qlg0r"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 size = Vector3(2.468502, 4.8958435, 2.6611185)
@@ -73,6 +74,235 @@ albedo_texture = ExtResource("4_dqkch")
 emission_enabled = true
 emission = Color(0.6522701, 0.5281222, 0, 1)
 emission_energy_multiplier = 7.6
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_fjrip"]
+albedo_color = Color(1, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_smehm"]
+material = SubResource("StandardMaterial3D_fjrip")
+size = Vector3(1, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_smehm"]
+albedo_color = Color(1, 0, 0, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 4.23
+
+[sub_resource type="SphereMesh" id="SphereMesh_ur7pv"]
+material = SubResource("StandardMaterial3D_smehm")
+radius = 0.3
+height = 0.6
+
+[sub_resource type="Animation" id="Animation_smehm"]
+resource_name = "walk"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("12268_banjofrog_v1_L3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-0.04793471, -3.2081895, -1.072645), Vector3(-0.04793471, -1.7642622, -1.072645), Vector3(-0.04793471, -3.2081895, -1.072645)]
+}
+
+[sub_resource type="Animation" id="Animation_ur7pv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("12268_banjofrog_v1_L3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.04793471, -3.2081895, -1.072645)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y4r1p"]
+_data = {
+&"RESET": SubResource("Animation_ur7pv"),
+&"walk": SubResource("Animation_smehm")
+}
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "tongue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.15120988, -2.6391795, 2.3921747), Vector3(-0.20071839, -7.8182483, 2.525273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 0.9999994, 0.9999999), Vector3(1, 10, 0.99999994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../body2/Node3D4/armhitarea/CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.7802913, 0, -0.8545542), Vector3(-0.42512226, -1.2264926, -0.8545546), Vector3(10.701297, -1.9630978, -1.7042294)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../body2/Node3D4/armhitarea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.92, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
+[sub_resource type="Animation" id="Animation_d2wvv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.15120988, -2.6391795, 2.3921747)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1, 0.9999994, 0.9999999)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../body2/Node3D4/armhitarea/CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-3.7802913, 0, -0.8545542)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../body2/Node3D4/armhitarea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("../../randomassets/GPUParticles3D2:emitting")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("../../slapbox:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 3.8156652, 3.2996013)]
+}
+
+[sub_resource type="Animation" id="Animation_3v2ag"]
+resource_name = "slap"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../randomassets/GPUParticles3D2:emitting")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.26666668),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../..")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.6333333),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"enableSlapBox"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../slapbox:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.34),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 3.8156652, 3.2996013), Vector3(-0.671895, 3.8156652, 5.409505)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
+_data = {
+&"RESET": SubResource("Animation_d2wvv"),
+&"slap": SubResource("Animation_3v2ag"),
+&"tongue": SubResource("Animation_y4r1p")
+}
 
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
@@ -331,6 +561,70 @@ tracks/7/keys = {
 "values": [false]
 }
 
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "hook"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body2/Node3D4/arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.665438, 2.0333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.0579388, 3.8497033, 0.6504135), Vector3(0.00285365, 2.1344624, 0.3046005), Vector3(0.002853632, 2.1344624, 0.3046005), Vector3(1.9514793, 2.1344626, 0.30460042)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body2/Node3D4/arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 2.03),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.9765992e-22, 1.4210853e-14, 1.5707964), Vector3(-6.5424235e-09, 4.923991e-10, 1.4205585)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body2/Node3D4/arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6666666, 2, 2.0040162),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.0000001, 1.0000001, 1), Vector3(1, 5, 1), Vector3(1, 4, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body2/Node3D4/armhitarea:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6333333, 2, 2.01),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(4.008548, 4.6083364, 1.836252), Vector3(20.653816, 4.608337, 1.8362513), Vector3(20.653818, 4.6083374, 0.31560403)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body2/Node3D4/armhitarea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.62, 2, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
+
 [sub_resource type="Animation" id="Animation_qlg0r"]
 resource_name = "slap"
 length = 3.0
@@ -409,70 +703,6 @@ tracks/5/keys = {
 "values": [false, false, true]
 }
 
-[sub_resource type="Animation" id="Animation_fjrip"]
-resource_name = "hook"
-length = 2.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("body2/Node3D4/arm:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.665438, 2.0040162),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 0,
-"values": [Vector3(-2.0579388, 3.8497033, 0.6504135), Vector3(0.00285365, 2.1344624, 0.3046005), Vector3(0.002853632, 2.1344624, 0.3046005), Vector3(1.9514793, 2.1344626, 0.30460042)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("body2/Node3D4/arm:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0, 0), Vector3(-1.9765992e-22, 1.4210853e-14, 1.5707964)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("body2/Node3D4/arm:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(1.6666666, 2, 2.0040162),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(1.0000001, 1.0000001, 1), Vector3(1, 5, 1), Vector3(1, 4, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("body2/Node3D4/armhitarea:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(1.6333333, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(4.008548, 4.6083364, 1.836252), Vector3(20.653816, 4.608337, 1.8362513)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("body2/Node3D4/armhitarea:monitoring")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 1.62, 2, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, true, false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
 _data = {
 &"RESET": SubResource("Animation_tuyoq"),
@@ -505,6 +735,30 @@ scale_curve = SubResource("CurveTexture_dqkch")
 
 [sub_resource type="SphereMesh" id="SphereMesh_dqkch"]
 
+[sub_resource type="Curve" id="Curve_jej6c"]
+_data = [Vector2(0, 0.053707242), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_f1ej7"]
+curve = SubResource("Curve_jej6c")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_oprun"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 20)
+scale_curve = SubResource("CurveTexture_f1ej7")
+hue_variation_min = -0.61
+hue_variation_max = 0.38999996
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_a8ls1"]
+albedo_color = Color(0.6713783, 0, 0.14642149, 1)
+emission_enabled = true
+emission = Color(1, 0, 0, 1)
+emission_energy_multiplier = 16.0
+
+[sub_resource type="SphereMesh" id="SphereMesh_qfm1y"]
+material = SubResource("StandardMaterial3D_a8ls1")
+
 [sub_resource type="SphereMesh" id="SphereMesh_qlg0r"]
 radius = 3.5
 height = 7.0
@@ -513,12 +767,16 @@ height = 7.0
 transparency = 1
 albedo_color = Color(1, 0.3574912, 1, 0.178)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "blockBubble", "walkanim", "slapanim")]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "blockBubble", "walkanim", "slapanim", "frogwalk", "frogslap", "frogbody", "ulemistebody")]
 script = ExtResource("1_g2els")
 slapbox = NodePath("slapbox")
 blockBubble = NodePath("blockbubba")
 walkanim = NodePath("animplayer")
 slapanim = NodePath("slap")
+frogwalk = NodePath("body3/frogwalk")
+frogslap = NodePath("body3/frogattack")
+frogbody = NodePath("body3")
+ulemistebody = NodePath("body2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05692482, -0.6336858, 0.038740337)
@@ -526,6 +784,7 @@ shape = SubResource("BoxShape3D_g2els")
 
 [node name="body2" type="Node3D" parent="."]
 transform = Transform3D(-4.3711385e-08, 0, -0.99999994, 0, 1, 0, 0.99999994, 0, -4.3711385e-08, 0, 0, 0)
+visible = false
 
 [node name="leg1" type="Node3D" parent="body2"]
 transform = Transform3D(0.9999999, 0, 0, 0, 0.9999999, 0, 0, 0, 0.99999994, 0, 0, 0)
@@ -579,6 +838,37 @@ mesh = SubResource("ArrayMesh_qlg0r")
 skeleton = NodePath("")
 surface_material_override/0 = SubResource("StandardMaterial3D_qlg0r")
 
+[node name="body3" type="Node3D" parent="."]
+visible = false
+
+[node name="12268_banjofrog_v1_L3" parent="body3" instance=ExtResource("5_qlg0r")]
+transform = Transform3D(1.2999258, -0.01225893, 0.006518245, -0.006200869, 0.033456907, 1.2995546, -0.012422503, -1.2995114, 0.033396523, -0.04793471, -3.2081895, -1.072645)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
+transform = Transform3D(1, 9.31322e-10, -6.984918e-10, -9.313226e-10, 0.9999994, 1.1920927e-08, 6.9849193e-10, -1.1920922e-08, 0.9999999, -0.15120988, -2.6391795, 2.3921747)
+mesh = SubResource("BoxMesh_smehm")
+
+[node name="eye" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
+transform = Transform3D(1, -5.5879354e-09, -5.180482e-09, -9.313226e-10, 0.9999994, 2.7939677e-08, 6.9849193e-10, -9.313226e-09, 0.9999999, -0.65037423, -2.6423378, 2.989233)
+mesh = SubResource("SphereMesh_ur7pv")
+
+[node name="eye2" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
+transform = Transform3D(1, -5.5879354e-09, -5.6170393e-09, -9.313226e-10, 0.9999994, 3.1664968e-08, 6.9849193e-10, -9.313226e-09, 0.9999999, 0.6165283, -2.6542852, 2.9955854)
+mesh = SubResource("SphereMesh_ur7pv")
+
+[node name="frogwalk" type="AnimationPlayer" parent="body3"]
+libraries = {
+&"": SubResource("AnimationLibrary_y4r1p")
+}
+speed_scale = 2.0
+
+[node name="frogattack" type="AnimationPlayer" parent="body3"]
+root_node = NodePath("../12268_banjofrog_v1_L3")
+libraries = {
+&"": SubResource("AnimationLibrary_3v2ag")
+}
+speed_scale = 2.0
+
 [node name="animplayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
@@ -617,12 +907,24 @@ explosiveness = 1.0
 process_material = SubResource("ParticleProcessMaterial_qhqgy")
 draw_pass_1 = SubResource("SphereMesh_dqkch")
 
+[node name="GPUParticles3D2" type="GPUParticles3D" parent="randomassets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.32650948, 3.728528)
+emitting = false
+amount = 16
+lifetime = 0.6
+one_shot = true
+randomness = 1.0
+local_coords = true
+process_material = SubResource("ParticleProcessMaterial_oprun")
+draw_pass_1 = SubResource("SphereMesh_qfm1y")
+
 [node name="blockbubba" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11894107, 2.3312666, -0.21391034)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11894107, 0.98991895, -0.21391034)
 visible = false
 mesh = SubResource("SphereMesh_qlg0r")
 surface_material_override/0 = SubResource("StandardMaterial3D_tuyoq")
 
 [connection signal="area_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_area_entered"]
 [connection signal="body_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_body_entered"]
+[connection signal="animation_finished" from="body3/frogattack" to="." method="_on_frogattack_animation_finished"]
 [connection signal="animation_finished" from="slap" to="." method="_on_slap_animation_finished"]
