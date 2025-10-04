@@ -1,10 +1,54 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv8y67d52w146"]
+[gd_scene load_steps=24 format=3 uid="uid://dv8y67d52w146"]
 
 [ext_resource type="Script" uid="uid://dhh7ay275tdd6" path="res://scripts/MainMenu.cs" id="1_mae5d"]
 [ext_resource type="Texture2D" uid="uid://bjivpaax11lpb" path="res://assets/kalev_pohjakonn_mainmenu.png" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxl0xtmlx4yhh" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="2_mae5d"]
 [ext_resource type="Texture2D" uid="uid://bqbo0dph0qjle" path="res://assets/bg_clouds_parallax.png" id="2_ytr4m"]
 [ext_resource type="Texture2D" uid="uid://dr8s8tnl80lmx" path="res://assets/title_mainmenu.png" id="4_4hy44"]
+[ext_resource type="Script" uid="uid://d3nhd5u6ucku6" path="res://scripts/Sky.cs" id="4_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://c6beemfp6udxp" path="res://assets/bg_greenery_parallax.png" id="5_kk3ma"]
+
+[sub_resource type="Animation" id="Animation_ecwwl"]
+resource_name = "moveleft"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(0.53588706, 0.36934298),
+"update": 0,
+"values": [Vector2(397.925, 368.09), Vector2(1900, 420)]
+}
+
+[sub_resource type="Animation" id="Animation_kk3ma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(859.17, 289)]
+}
+
+[sub_resource type="Animation" id="Animation_nrnbx"]
+resource_name = "moveright"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrnbx"]
+_data = {
+&"RESET": SubResource("Animation_kk3ma"),
+&"moveleft": SubResource("Animation_ecwwl"),
+&"moveright": SubResource("Animation_nrnbx")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hy44"]
 texture = ExtResource("1_ouk20")
@@ -126,24 +170,46 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mae5d")
 
-[node name="BackgroundParallax2D" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundParallax2D"]
-
-[node name="SkyParallax" type="Sprite2D" parent="BackgroundParallax2D/ParallaxLayer"]
-texture = ExtResource("2_ytr4m")
-centered = false
-
 [node name="AnimTitle" type="CanvasLayer" parent="."]
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="AnimTitle"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.24313726, 1, 1, 1)
+
+[node name="MainMenuBackground" type="Node2D" parent="AnimTitle"]
+
+[node name="Sky" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+texture_filter = 1
+position = Vector2(859.17, 289)
+scale = Vector2(3, 0.955)
+texture = ExtResource("2_ytr4m")
+script = ExtResource("4_ecwwl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimTitle/MainMenuBackground/Sky"]
+libraries = {
+&"": SubResource("AnimationLibrary_nrnbx")
+}
+autoplay = "moveleft"
+speed_scale = 0.5
+
+[node name="Greenery" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+texture_filter = 1
+position = Vector2(582.50006, 332.5)
+scale = Vector2(1.235026, 0.946289)
+texture = ExtResource("5_kk3ma")
+
+[node name="Background" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+visible = false
+texture_filter = 1
+position = Vector2(576.00006, 324)
+scale = Vector2(0.75, 0.6328125)
+texture = ExtResource("1_ouk20")
 
 [node name="Background" type="Panel" parent="."]
 visible = false
@@ -234,3 +300,5 @@ libraries = {
 &"": SubResource("AnimationLibrary_ecwwl")
 }
 autoplay = "BreatheTitle"
+
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]
