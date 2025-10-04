@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://deng8imepboky"]
+
+[ext_resource type="Script" uid="uid://20d7cdthsi47" path="res://scripts/AudioController.cs" id="1_41o6r"]
+[ext_resource type="AudioStream" uid="uid://dd5gaubnqjnpw" path="res://sound/music/laul_1.mp3" id="2_5dt40"]
+[ext_resource type="AudioStream" uid="uid://botctgrufr06d" path="res://sound/effects/sans_high.mp3" id="3_cedxo"]
+[ext_resource type="AudioStream" uid="uid://b2grebspv0qcx" path="res://sound/effects/sans_low.mp3" id="4_6fhfa"]
+
+[node name="audiocontroller" type="Node3D"]
+script = ExtResource("1_41o6r")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_5dt40")
+volume_db = 8.587
+
+[node name="slap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_cedxo")
+
+[node name="pull" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_6fhfa")
