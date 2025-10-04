@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://hog128paq7cv"]
+[gd_scene load_steps=22 format=4 uid="uid://hog128paq7cv"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_2fp3l"]
 [ext_resource type="Script" uid="uid://cesbadblti0n4" path="res://scripts/Battleground.cs" id="1_vnb4m"]
@@ -9,6 +9,7 @@
 [ext_resource type="Shader" uid="uid://cuyt0andxag1k" path="res://shader/battleground.gdshader" id="5_i5qts"]
 [ext_resource type="Material" uid="uid://dp4hag8junic3" path="res://textures/128x128/Brick/Brick_20-128x128.tres" id="6_walpe"]
 [ext_resource type="Material" uid="uid://bfr1h3pimgnok" path="res://textures/128x128/Dirt/Dirt_02-128x128.tres" id="7_60gfh"]
+[ext_resource type="AudioStream" uid="uid://dd5gaubnqjnpw" path="res://sound/music/laul_1.mp3" id="10_h0efe"]
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_h0efe"]
 _surfaces = [{
@@ -198,3 +199,8 @@ offset_right = 1136.0
 offset_bottom = 59.0
 max_value = 10.0
 value = 10.0
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("10_h0efe")
+volume_db = 8.0
+autoplay = true
