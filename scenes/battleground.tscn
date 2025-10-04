@@ -73,6 +73,129 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
+[sub_resource type="Animation" id="Animation_bkg3l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-11.018215, 1.3868065, -16.256247)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.627219, 0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ui/p1text:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ui/p2text:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("ui/vs:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("ui/p1text:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(328, 208)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("ui/p2text:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 392)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("ui/vs:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 296)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("ui/fight:visible")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ui/fight:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(336, 336)]
+}
+
 [sub_resource type="Animation" id="Animation_6yst1"]
 resource_name = "startcamera"
 length = 3.0
@@ -197,129 +320,6 @@ tracks/9/keys = {
 "values": [Vector2(336, 336), Vector2(336, 336)]
 }
 
-[sub_resource type="Animation" id="Animation_bkg3l"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-11.018215, 1.3868065, -16.256247)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.627219, 0, 0)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("ui/p1text:visible")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("ui/p2text:visible")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("ui/vs:visible")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("ui/p1text:position")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(328, 208)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("ui/p2text:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(336, 392)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("ui/vs:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(336, 296)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("ui/fight:visible")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("ui/fight:position")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(336, 336)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c7dbr"]
 _data = {
 &"RESET": SubResource("Animation_bkg3l"),
@@ -441,10 +441,16 @@ size = Vector2(300, 300)
 subdivide_width = 100
 subdivide_depth = 100
 
-[node name="battleground" type="Node3D" node_paths=PackedStringArray("p1hpbar", "p2hpbar")]
+[node name="battleground" type="Node3D" node_paths=PackedStringArray("p1hpbar", "p2hpbar", "p1", "p2", "p1cam", "p2cam", "fatalitylabel", "reloadtimer")]
 script = ExtResource("1_vnb4m")
 p1hpbar = NodePath("Camera3D/ui/p1bar")
 p2hpbar = NodePath("Camera3D/ui/p2bar")
+p1 = NodePath("player")
+p2 = NodePath("player2")
+p1cam = NodePath("player2/p2cam")
+p2cam = NodePath("player/p1cam")
+fatalitylabel = NodePath("stuff/Control/fatality")
+reloadtimer = NodePath("Timer")
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.9716922, -0.15490226, 0.17838076, -0.13310404, 0.26486045, 0.9550561, -0.19518633, -0.9517637, 0.2367447, 0, 0, 0)
@@ -472,10 +478,14 @@ mesh = SubResource("ArrayMesh_60gfh")
 shape = SubResource("ConvexPolygonShape3D_h0efe")
 
 [node name="player2" parent="." node_paths=PackedStringArray("p1text", "p2text") instance=ExtResource("4_v55xa")]
-transform = Transform3D(-0.027223792, 0, -0.9996294, 0, 1, 0, 0.9996294, 0, -0.027223792, -1.3237495, 6.0156555, -38.77819)
+transform = Transform3D(-0.027223792, 0, -0.9996294, 0, 1, 0, 0.9996294, 0, -0.027223792, -1.3237495, 6.2629824, -38.77819)
 p1text = NodePath("../Camera3D/ui/p1text")
 p2text = NodePath("../Camera3D/ui/p2text")
 isPlayerOne = false
+
+[node name="p2cam" type="Camera3D" parent="player2"]
+transform = Transform3D(0.9999747, 0.0070460364, -0.0009272862, -0.007046036, 0.9659258, -0.2587231, -0.00092728436, 0.2587231, 0.9659511, 0.14144516, 0, 5.193731)
+fov = 132.8
 
 [node name="player" parent="." node_paths=PackedStringArray("p1text", "p2text") instance=ExtResource("4_v55xa")]
 transform = Transform3D(0.07638834, 0, 0.9970781, 0, 1, 0, -0.9970781, 0, 0.07638834, -21.418678, 6.0156555, -39.09586)
@@ -483,8 +493,13 @@ charName = "frog"
 p1text = NodePath("../Camera3D/ui/p1text")
 p2text = NodePath("../Camera3D/ui/p2text")
 
+[node name="p1cam" type="Camera3D" parent="player"]
+transform = Transform3D(0.9998013, 0.019770762, -0.0025952682, -0.019770758, 0.9659258, -0.2580628, -0.0025952682, 0.25806287, 0.96612483, 0.14144516, 0, 5.1937313)
+fov = 115.0
+
 [node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.80966264, 0.5868953, 0, -0.5868953, 0.80966264, -11.018215, 1.3868065, -16.256247)
+transform = Transform3D(1, 0, 0, 0, 0.80966264, 0.5868952, 0, -0.5868952, 0.80966264, -11.018215, 1.3868065, -16.256247)
+current = true
 fov = 45.2
 size = 15.0
 
@@ -500,6 +515,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="p1bar" type="ProgressBar" parent="Camera3D/ui"]
+visible = false
 layout_mode = 0
 offset_left = 8.0
 offset_top = 72.0
@@ -509,6 +525,7 @@ max_value = 10.0
 value = 10.0
 
 [node name="p2bar" type="ProgressBar" parent="Camera3D/ui"]
+visible = false
 layout_mode = 0
 offset_left = 1200.0
 offset_top = 72.0
@@ -639,6 +656,24 @@ offset_right = 1280.0
 offset_bottom = 848.0
 color = Color(0, 0, 0, 1)
 
+[node name="fatality" type="Label" parent="stuff/Control"]
+visible = false
+layout_mode = 0
+offset_left = 456.0
+offset_top = 360.0
+offset_right = 831.0
+offset_bottom = 456.0
+theme_override_colors/font_color = Color(1, 0, 0, 1)
+theme_override_fonts/font = ExtResource("8_bkg3l")
+theme_override_font_sizes/font_size = 64
+text = "FATALITY"
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="stuff"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.11133, -0.9664335, -48.441265)
 mesh = SubResource("PlaneMesh_h0efe")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
