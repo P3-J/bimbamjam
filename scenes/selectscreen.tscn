@@ -1,0 +1,160 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxyf6uw7438gt"]
+
+[ext_resource type="Script" uid="uid://b0gq2jg35a3cn" path="res://scripts/pickscript.cs" id="1_2ssj7"]
+[ext_resource type="FontFile" uid="uid://dxl0xtmlx4yhh" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="1_26cpi"]
+[ext_resource type="PackedScene" uid="uid://6s3mcjgcy4u1" path="res://objektid/pildid/Untitled3.fbx" id="1_gvyvf"]
+[ext_resource type="PackedScene" uid="uid://cdd2uiua012tx" path="res://assets/frogs/12268_banjofrog_v1_L3.obj" id="2_26cpi"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_gvyvf"]
+sky_top_color = Color(0, 0, 0, 1)
+sky_horizon_color = Color(0, 0, 0, 1)
+ground_bottom_color = Color(0, 0, 0, 1)
+ground_horizon_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Sky" id="Sky_26cpi"]
+sky_material = SubResource("ProceduralSkyMaterial_gvyvf")
+
+[sub_resource type="Environment" id="Environment_2ssj7"]
+background_mode = 2
+sky = SubResource("Sky_26cpi")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="Animation" id="Animation_2ssj7"]
+resource_name = "rotate"
+length = 10.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("12268_banjofrog_v1_L3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.4386746, -0.10515609, 0), Vector3(-1.4386746, 6.2831855, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Untitled3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 10),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(0, 6.2831855, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_gvyvf"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("12268_banjofrog_v1_L3:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.4386746, -0.10515609, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Untitled3:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rb1q7"]
+_data = {
+&"RESET": SubResource("Animation_gvyvf"),
+&"rotate": SubResource("Animation_2ssj7")
+}
+
+[node name="selectscreen" type="Node3D" node_paths=PackedStringArray("mainlabel", "ulemistebutton", "frogbutton", "Startbutton")]
+script = ExtResource("1_2ssj7")
+mainlabel = NodePath("Control/Label")
+ulemistebutton = NodePath("Control/Button2")
+frogbutton = NodePath("Control/Button3")
+Startbutton = NodePath("Control/Button")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_2ssj7")
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1280.0
+offset_bottom = 720.0
+
+[node name="Label" type="Label" parent="Control"]
+layout_mode = 0
+offset_left = 376.0
+offset_top = 88.0
+offset_right = 904.0
+offset_bottom = 192.0
+theme_override_fonts/font = ExtResource("1_26cpi")
+theme_override_font_sizes/font_size = 36
+text = "P1 
+pick a fighter"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 480.0
+offset_top = 320.0
+offset_right = 776.0
+offset_bottom = 392.0
+text = "START"
+
+[node name="Button2" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 80.0
+offset_top = 328.0
+offset_right = 408.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("1_26cpi")
+text = "ULEMISTE VANAKE"
+
+[node name="Button3" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 856.0
+offset_top = 328.0
+offset_right = 1184.0
+offset_bottom = 408.0
+theme_override_fonts/font = ExtResource("1_26cpi")
+text = "POHJA KONN"
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 7.7852283)
+
+[node name="Untitled3" parent="." instance=ExtResource("1_gvyvf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2834133, -0.59553146, 6.079664)
+
+[node name="12268_banjofrog_v1_L3" parent="." instance=ExtResource("2_26cpi")]
+transform = Transform3D(0.19889522, 0.020809522, -0.0027655012, 0, 0.026347542, 0.19825692, 0.020992476, -0.1971618, 0.026202003, 1.0956547, -0.33668137, 5.9788074)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rb1q7")
+}
+autoplay = "rotate"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.108103484, 0.9941397, 0, -0.9941397, -0.108103484, -0.2697873, 2.4744449, 6.575474)
+
+[connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

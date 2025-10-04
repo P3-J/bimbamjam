@@ -10,7 +10,15 @@ public partial class Player : CharacterBody3D
     [Export] public MeshInstance3D blockBubble;
     [Export] public AnimationPlayer walkanim;
     [Export] public AnimationPlayer slapanim;
+    [Export] public AnimationPlayer frogwalk;
+    [Export] public AnimationPlayer frogslap;
+    [Export] Node3D frogbody;
+    [Export] Node3D ulemistebody;
     [Export] public bool canMove = true;
+
+    [Export] string charName = "ulemiste";
+    [Export] RichTextLabel p1text;
+    [Export] RichTextLabel p2text;
 
     [Export] public bool isPlayerOne = true; // true = WASD, false = arrows
 
@@ -34,6 +42,26 @@ public partial class Player : CharacterBody3D
     {
         base._Ready();
         glob = GetNode<Globals>("/root/Globals");
+
+        if (isPlayerOne)
+        {
+            charName = glob.p1pick;
+            p1text.Text = glob.p1pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+        }
+        else
+        {
+            charName = glob.p2pick;
+            p2text.Text = glob.p2pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+        }
+
+        if (charName == "ulemiste")
+        {
+            ulemistebody.Visible = true;
+        }
+        else
+        {
+            frogbody.Visible = true;
+        }
 
         // Assign controls based on player number
         if (isPlayerOne)
@@ -83,7 +111,9 @@ public partial class Player : CharacterBody3D
 
         if (direction != Vector3.Zero)
         {
-            walkanim.Play("walk"); // should continue from the last state -- currently starts over when new input comes in
+
+            if (charName == "ulemiste") walkanim.Play("walk");
+            if (charName == "frog") frogwalk.Play("walk");
 
             float targetAngle = Mathf.Atan2(direction.X, direction.Z);
             Rotation = new Vector3(
@@ -98,6 +128,7 @@ public partial class Player : CharacterBody3D
         else
         {
             walkanim.Stop();
+            frogwalk.Play("RESET");
             velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
             velocity.Z = Mathf.MoveToward(velocity.Z, 0, Speed);
         }
@@ -110,7 +141,6 @@ public partial class Player : CharacterBody3D
     {
         base._Input(@event);
 
-        GD.Print(@event);
         if (Input.IsActionPressed(blockAction) && canCast)
         {
             canCast = false;
@@ -126,7 +156,9 @@ public partial class Player : CharacterBody3D
         {
             canCast = false;
             slapanim.SpeedScale = 2;
-            slapanim.Play("slap");
+
+            if (charName == "ulemiste") slapanim.Play("slap");
+            if (charName == "frog") frogslap.Play("slap");
         }
     }
 
@@ -174,6 +206,19 @@ public partial class Player : CharacterBody3D
         canCast = true;
     }
 
+    private void _on_frogattack_animation_finished(string animname)
+    {
+        if (animname == "slap")
+        {
+            frogslap.Play("RESET");
+        }
+        if (animname == "tongue"){
+            frogslap.Play("RESET");
+            canMove = true;
+        }
+        canCast = true;
+    }
+
     public void enableSlapBox()
     {
         foreach (Area3D area in slapbox.GetOverlappingAreas())
@@ -182,7 +227,7 @@ public partial class Player : CharacterBody3D
             if (area.IsInGroup("playerbody"))
             {
                 CharacterBody3D player = area.GetParent<CharacterBody3D>();
-                if (player != this) 
+                if (player != this)
                     player.Call("TakeDmg", 1, this.GlobalPosition);
             }
         }
@@ -192,7 +237,15 @@ public partial class Player : CharacterBody3D
     public void HookMove(){
         // send out a hitbox carry back anyplayers we hit. Wall check?
         GD.Print("wtf");
-        slapanim.Play("hook");
+
+        if (charName == "ulemiste")
+        {
+            slapanim.Play("hook");
+        }
+        else
+        {
+            frogslap.Play("tongue");
+        }
     }
 
     private void _on_armhitarea_body_entered(Node3D area){

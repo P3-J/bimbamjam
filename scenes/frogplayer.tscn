@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://bnxlrxrhv3gdc"]
+
+[ext_resource type="PackedScene" uid="uid://cdd2uiua012tx" path="res://assets/frogs/12268_banjofrog_v1_L3.obj" id="1_aayx7"]
+[ext_resource type="Texture2D" uid="uid://cofislhvj3w8x" path="res://assets/frogs/12268_banjofrog_diffuse.jpg" id="2_23xn6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_cf8pn"]
+albedo_texture = ExtResource("2_23xn6")
+emission_enabled = true
+emission = Color(0.038272988, 0.10628855, 0.0027833842, 1)
+emission_energy_multiplier = 2.98
+
+[node name="12268_banjofrog_v1_L3" instance=ExtResource("1_aayx7")]
+
+[node name="Mesh" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_cf8pn")
