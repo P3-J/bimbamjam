@@ -1,8 +1,9 @@
-[gd_scene load_steps=16 format=4 uid="uid://bpcmk0higwelb"]
+[gd_scene load_steps=26 format=4 uid="uid://bpcmk0higwelb"]
 
 [ext_resource type="Script" uid="uid://87rbybk6e5wx" path="res://scripts/Player.cs" id="1_g2els"]
 [ext_resource type="Material" uid="uid://cdyfq2i00s386" path="res://textures/128x128/Brick/Brick_13-128x128.tres" id="2_qhqgy"]
 [ext_resource type="Material" uid="uid://7bcckycq6i0f" path="res://textures/128x128/Metal/Metal_06-128x128.tres" id="3_dqkch"]
+[ext_resource type="Texture2D" uid="uid://dvasct7o7igc8" path="res://textures/128x128/Brick/Brick_14-128x128.png" id="4_dqkch"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_g2els"]
 size = Vector3(2.468502, 4.8958435, 2.6611185)
@@ -37,6 +38,9 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AAAgQAAAYMAAAIA/AADgPwAAYMAAAIA/AADgPwAAiMAAAIA/AAAgQAAAiMAAAIA/AADgPwAAiMAAAOA/AADgPwAAiMAAAIA/AADgPwAAYMAAAIA/AADgPwAAYMAAAOA/AADgPwAAiMAAAOA/AAAgQAAAiMAAAOA/AAAgQAAAiMAAAIA/AADgPwAAiMAAAIA/AADgPwAAYMAAAOA/AADgPwAAYMAAAIA/AAAgQAAAYMAAAIA/AAAgQAAAYMAAAOA/AAAgQAAAYMAAAOA/AAAgQAAAYMAAAIA/AAAgQAAAiMAAAIA/AAAgQAAAiMAAAOA/AAAgQAAAiMAAAOA/AADgPwAAiMAAAOA/AADgPwAAYMAAAOA/AAAgQAAAYMAAAOA/AAAgQAAAIMAAAIA/AADgPwAAIMAAAIA/AADgPwAAUMAAAIA/AAAgQAAAUMAAAIA/AADgPwAAUMAAAOA/AADgPwAAUMAAAIA/AADgPwAAIMAAAIA/AADgPwAAIMAAAOA/AADgPwAAUMAAAOA/AAAgQAAAUMAAAOA/AAAgQAAAUMAAAIA/AADgPwAAUMAAAIA/AADgPwAAIMAAAOA/AADgPwAAIMAAAIA/AAAgQAAAIMAAAIA/AAAgQAAAIMAAAOA/AAAgQAAAIMAAAOA/AAAgQAAAIMAAAIA/AAAgQAAAUMAAAIA/AAAgQAAAUMAAAOA/AAAgQAAAUMAAAOA/AADgPwAAUMAAAOA/AADgPwAAIMAAAOA/AAAgQAAAIMAAAOA/AAAgQAAAwL8AAIA/AADgPwAAwL8AAIA/AADgPwACEMAAAIA/AAAgQAACEMAAAIA/AADgPwACEMAAAOA/AADgPwACEMAAAIA/AADgPwAAwL8AAIA/AADgPwAAwL8AAOA/AADgPwAAEMAAAOA/AAAgQAAAEMAAAOA/AAAgQAAAEMAAAIA/AADgPwAAEMAAAIA/AADgPwAAwL8AAOA/AADgPwAAwL8AAIA/AAAgQAAAwL8AAIA/AAAgQAAAwL8AAOA/AAAgQAAAwL8AAOA/AAAgQAAAwL8AAIA/AAAgQAACEMAAAIA/AAAgQAACEMAAAOA/AAAgQAACEMAAAOA/AADgPwACEMAAAOA/AADgPwAAwL8AAOA/AAAgQAAAwL8AAOA/AAAgQAAAAL8AAIA/AADgPwAAAL8AAIA/AADgPwAAoL8AAIA/AAAgQAAAoL8AAIA/AADgPwAAoL8AAOA/AADgPwAAoL8AAIA/AADgPwAAAL8AAIA/AADgPwAAAL8AAOA/AADgPwAAoL8AAOA/AAAgQAAAoL8AAOA/AAAgQAAAoL8AAIA/AADgPwAAoL8AAIA/AADgPwAAAL8AAOA/AADgPwAAAL8AAIA/AAAgQAAAAL8AAIA/AAAgQAAAAL8AAOA/AAAgQAAAAL8AAOA/AAAgQAAAAL8AAIA/AAAgQAAAoL8AAIA/AAAgQAAAoL8AAOA/AAAgQAAAoL8AAOA/AADgPwAAoL8AAOA/AADgPwAAAL8AAOA/AAAgQAAAAL8AAOA/AAAgQAAAAD8AAIA/AADgPwAAAD8AAIA/AADgPwAAgL4AAIA/AAAgQAAAgL4AAIA/AADgPwAAgL4AAOA/AADgPwAAgL4AAIA/AADgPwAAAD8AAIA/AADgPwAAAD8AAMA/AADgPwAAgL4AAOA/AAAgQAAAgL4AAOA/AAAgQAAAgL4AAIA/AADgPwAAgL4AAIA/AADgPwAAAD8AAMA/AADgPwAAAD8AAIA/AAAgQAAAAD8AAIA/AAAgQAAAAD8AAMA/AAAgQAAAAD8AAMA/AAAgQAAAAD8AAIA/AAAgQAAAgL4AAIA/AAAgQAAAgL4AAOA/AAAgQAAAgL6r/t8/AADgPwAAgL6r/t8/AADgPwEAAD+r/r8/AAAgQAEAAD+r/r8//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//5////+//3//n////7//f/+f////v/9//5////+/")
 }]
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_qlg0r"]
+size = Vector3(2, 2, 2)
+
 [sub_resource type="ArrayMesh" id="ArrayMesh_qlg0r"]
 _surfaces = [{
 "aabb": AABB(-0.5001221, -0.37512207, -1.3751221, 1.0001221, 5.625122, 2.8751223),
@@ -63,6 +67,12 @@ _surfaces = [{
 "vertex_count": 120,
 "vertex_data": PackedByteArray("AADAPgAAQEAAAAA+APC/vgAAQEAAAAA+APC/vgAAEEAAAAA+AADAPgAAEEAAAAA+AADAvgAAEEAAAGA/AADAvgAAEEAAAAA+AADAvgAAQEAAAAA+AADAvgAAQEAAAGA/APC/vgAAEEAAAGA/AADAPgAAEEAAAGA/AADAPgAAEEAAAAA+APC/vgAAEEAAAAA+APC/vgAAQEAAAGA/APC/vgAAQEAAAAA+AADAPgAAQEAAAAA+AADAPgAAQEAAAGA/AADAPgAAQEAAAGA/AADAPgAAQEAAAAA+AADAPgAAEEAAAAA+AADAPgAAEEAAAGA/AADAPgAAEEAAAGA/APC/vgAAEEAAAGA/APC/vgAAQEAAAGA/AADAPgAAQEAAAGA/AAAAPwAA0EAAAEC/AAgAvwAA0EAAAEC/AAgAvwAAsEAAAAC/AAAAPwAAsEAAAAC/AAAAvwAAsEACAAA/AAAAvwAAsEAABAC/AAAAvwAA0ED/A0C/AAAAvwAA0EABAEA/AAgAvwAAsEACAAA/AAAAPwAAsEACAAA/AAAAPwAAsEAACAC/AAgAvwAAsEAACAC/AAgAvwAA0ED+/z8/AAgAvwAA0EAACEC/AAAAPwAA0EAACEC/AAAAPwAA0ED+/z8/AAAAPwAA0EABAEA/AAAAPwAA0ED/A0C/AAAAPwAAsEAABAC/AAAAPwAAsEACAAA/AAAAPwAAsEAAAAA/AAgAvwAAsEAAAAA/AAgAvwAA0EAAAEA/AAAAPwAA0EAAAEA/AADAPgAAQEAAAGC/APC/vgAAQEAAAGC/APC/vgAAEEAAAGC/AADAPgAAEEAAAGC/AADAvgAAEEAAAAC+AADAvgAAEEAAAGC/AADAvgAAQEAAAGC/AADAvgAAQEAAAAC+APC/vgAAEEAAAAC+AADAPgAAEEAAAAC+AADAPgAAEEAAAGC/APC/vgAAEEAAAGC/APC/vgAAQEAAAAC+APC/vgAAQEAAAGC/AADAPgAAQEAAAGC/AADAPgAAQEAAAAC+AADAPgAAQEAAAAC+AADAPgAAQEAAAGC/AADAPgAAEEAAAGC/AADAPgAAEEAAAAC+AADAPgAAEEAAAAC+APC/vgAAEEAAAAC+APC/vgAAQEAAAAC+AADAPgAAQEAAAAC+AADAPgAAAEAAAGC/APC/vgAAAEAAAGC/APC/vgAAoD8AAGC/AADAPgAAoD8AAGC/AADAvgAAoD8AAAC+AADAvgAAoD8AAGC/AADAvgAAAEAAAGC/AADAvgAAAEAAAAC+APC/vgAAoD8AAAC+AADAPgAAoD8AAAC+AADAPgAAoD8AAGC/APC/vgAAoD8AAGC/APC/vgAAAEAAAAC+APC/vgAAAEAAAGC/AADAPgAAAEAAAGC/AADAPgAAAEAAAAC+AADAPgAAAEAAAAC+AADAPgAAAEAAAGC/AADAPgAAoD8AAGC/AADAPgAAoD8AAAC+AADAPgAAoD8AAAC+APC/vgAAoD8AAAC+APC/vgAAAEAAAAC+AADAPgAAAEAAAAC+AADAPgAAAEAAAAA+APC/vgAAAEAAAAA+APC/vgAAoD8AAAA+AADAPgAAoD8AAAA+AADAvgAAoD8AAGA/AADAvgAAoD8AAAA+AADAvgAAAEAAAAA+AADAvgAAAEAAAGA/APC/vgAAoD8AAGA/AADAPgAAoD8AAGA/AADAPgAAoD8AAAA+APC/vgAAoD8AAAA+APC/vgAAAEAAAGA/APC/vgAAAEAAAAA+AADAPgAAAEAAAAA+AADAPgAAAEAAAGA/AADAPgAAAEAAAGA/AADAPgAAAEAAAAA+AADAPgAAoD8AAAA+AADAPgAAoD8AAGA/AADAPgAAoD8AAGA/APC/vgAAoD8AAGA/APC/vgAAAEAAAGA/AADAPgAAAEAAAGA//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/ZeYAAAAA/79l5gAAAAD/v2XmAAAAAP+/ZeYAAAAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9/Zmb///+//39mZv///7//f2Zm////v/9/Zmb///+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+//////wAA/7//////AAD/v/////8AAP+//////wAA/78AAP9//3//vwAA/3//f/+/AAD/f/9//78AAP9//3//v/9/AAD//////38AAP//////fwAA//////9/AAD//////3////9//7//f////3//v/9/////f/+//3////9//7////9//////////3//////////f/////////9///////9//3////+//3//f////7//f/9/////v/9//3////+/")
 }]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qlg0r"]
+albedo_texture = ExtResource("4_dqkch")
+emission_enabled = true
+emission = Color(0.6522701, 0.5281222, 0, 1)
+emission_energy_multiplier = 7.6
 
 [sub_resource type="Animation" id="Animation_dqkch"]
 length = 0.001
@@ -248,6 +258,78 @@ tracks/1/keys = {
 "update": 0,
 "values": [Vector3(0, 0, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body2/Node3D4/arm:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-2.0579388, 3.8497033, 0.6504135)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body2/Node3D4/arm:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(0, 0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body2/Node3D4/arm:scale")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(1.0000001, 1.0000001, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("body2/Node3D4/armhitarea:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(4.008548, 4.6083364, 1.836252)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("body2/Node3D4/armhitarea:monitoring")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("randomassets/GPUParticles3D:emitting")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_qlg0r"]
 resource_name = "slap"
@@ -314,10 +396,87 @@ tracks/4/keys = {
 "method": &"enableSlapBox"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("randomassets/GPUParticles3D:emitting")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1.2333333, 1.3666667),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, false, true]
+}
+
+[sub_resource type="Animation" id="Animation_fjrip"]
+resource_name = "hook"
+length = 2.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("body2/Node3D4/arm:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.665438, 2.0040162),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector3(-2.0579388, 3.8497033, 0.6504135), Vector3(0.00285365, 2.1344624, 0.3046005), Vector3(0.002853632, 2.1344624, 0.3046005), Vector3(1.9514793, 2.1344626, 0.30460042)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("body2/Node3D4/arm:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0, 0), Vector3(-1.9765992e-22, 1.4210853e-14, 1.5707964)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("body2/Node3D4/arm:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1.6666666, 2, 2.0040162),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(1.0000001, 1.0000001, 1), Vector3(1, 5, 1), Vector3(1, 4, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("body2/Node3D4/armhitarea:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(1.6333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(4.008548, 4.6083364, 1.836252), Vector3(20.653816, 4.608337, 1.8362513)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("body2/Node3D4/armhitarea:monitoring")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 1.62, 2, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_tuyoq"]
 _data = {
 &"RESET": SubResource("Animation_tuyoq"),
+&"hook": SubResource("Animation_fjrip"),
 &"slap": SubResource("Animation_qlg0r")
 }
 
@@ -327,9 +486,37 @@ size = Vector3(4.2176514, 7.0828857, 3.1148071)
 [sub_resource type="BoxShape3D" id="BoxShape3D_qhqgy"]
 size = Vector3(3.197815, 1.428772, 3.1560059)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "walkanim", "slapanim")]
+[sub_resource type="Curve" id="Curve_qhqgy"]
+_data = [Vector2(0.3468795, 0.984631), 0.0, 0.0, 0, 0, Vector2(0.98838896, 0.036142588), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_dqkch"]
+curve = SubResource("Curve_qhqgy")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qhqgy"]
+emission_shape = 1
+emission_sphere_radius = 1.0
+gravity = Vector3(0, 0, 0)
+linear_accel_min = -13.920002
+linear_accel_max = 22.219997
+radial_accel_min = -2.2351742e-06
+radial_accel_max = 31.329998
+scale_curve = SubResource("CurveTexture_dqkch")
+
+[sub_resource type="SphereMesh" id="SphereMesh_dqkch"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_qlg0r"]
+radius = 3.5
+height = 7.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tuyoq"]
+transparency = 1
+albedo_color = Color(1, 0.3574912, 1, 0.178)
+
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "blockBubble", "walkanim", "slapanim")]
 script = ExtResource("1_g2els")
 slapbox = NodePath("slapbox")
+blockBubble = NodePath("blockbubba")
 walkanim = NodePath("animplayer")
 slapanim = NodePath("slap")
 
@@ -372,9 +559,17 @@ transform = Transform3D(0.99999845, 0, 3.5527166e-15, 0, 0.99999887, 0, -3.55271
 metadata/_edit_group_ = true
 
 [node name="arm" type="MeshInstance3D" parent="body2/Node3D4"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0579388, 3.8497033, 0.6504135)
+transform = Transform3D(1.0000001, 0, 0, 0, 1.0000001, 0, 0, 0, 1, -2.0579388, 3.8497033, 0.6504135)
 mesh = SubResource("ArrayMesh_tuyoq")
 skeleton = NodePath("")
+
+[node name="armhitarea" type="Area3D" parent="body2/Node3D4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.008548, 4.6083364, 1.836252)
+monitoring = false
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="body2/Node3D4/armhitarea"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.7802913, 0, -0.8545542)
+shape = SubResource("BoxShape3D_qlg0r")
 
 [node name="Node3D5" type="Node3D" parent="body2"]
 metadata/_edit_group_ = true
@@ -382,6 +577,7 @@ metadata/_edit_group_ = true
 [node name="body" type="MeshInstance3D" parent="body2/Node3D5"]
 mesh = SubResource("ArrayMesh_qlg0r")
 skeleton = NodePath("")
+surface_material_override/0 = SubResource("StandardMaterial3D_qlg0r")
 
 [node name="animplayer" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
@@ -394,6 +590,7 @@ unique_name_in_owner = true
 libraries = {
 &"": SubResource("AnimationLibrary_tuyoq")
 }
+speed_scale = 2.0
 
 [node name="bodyarea" type="Area3D" parent="." groups=["playerbody"]]
 
@@ -408,4 +605,24 @@ monitorable = false
 [node name="slaphit" type="CollisionShape3D" parent="slapbox"]
 shape = SubResource("BoxShape3D_qhqgy")
 
+[node name="randomassets" type="Node3D" parent="."]
+
+[node name="GPUParticles3D" type="GPUParticles3D" parent="randomassets"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5507207, 3.485011)
+emitting = false
+amount = 16
+lifetime = 0.3
+one_shot = true
+explosiveness = 1.0
+process_material = SubResource("ParticleProcessMaterial_qhqgy")
+draw_pass_1 = SubResource("SphereMesh_dqkch")
+
+[node name="blockbubba" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11894107, 2.3312666, -0.21391034)
+visible = false
+mesh = SubResource("SphereMesh_qlg0r")
+surface_material_override/0 = SubResource("StandardMaterial3D_tuyoq")
+
+[connection signal="area_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_area_entered"]
+[connection signal="body_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_body_entered"]
 [connection signal="animation_finished" from="slap" to="." method="_on_slap_animation_finished"]
