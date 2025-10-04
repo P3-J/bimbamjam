@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://dxyf6uw7438gt"]
+[gd_scene load_steps=13 format=3 uid="uid://dxyf6uw7438gt"]
 
 [ext_resource type="Script" uid="uid://b0gq2jg35a3cn" path="res://scripts/pickscript.cs" id="1_2ssj7"]
 [ext_resource type="FontFile" uid="uid://dxl0xtmlx4yhh" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="1_26cpi"]
@@ -19,6 +19,11 @@ background_mode = 2
 sky = SubResource("Sky_26cpi")
 tonemap_mode = 2
 glow_enabled = true
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_2ssj7"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rb1q7"]
+bg_color = Color(0.154979, 0.154979, 0.154979, 0.4392157)
 
 [sub_resource type="Animation" id="Animation_gvyvf"]
 length = 0.001
@@ -102,8 +107,8 @@ offset_bottom = 720.0
 layout_mode = 0
 offset_left = 376.0
 offset_top = 88.0
-offset_right = 904.0
-offset_bottom = 192.0
+offset_right = 890.0
+offset_bottom = 259.0
 theme_override_fonts/font = ExtResource("1_26cpi")
 theme_override_font_sizes/font_size = 36
 text = "P1 
@@ -113,10 +118,14 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 480.0
-offset_top = 320.0
-offset_right = 776.0
-offset_bottom = 392.0
+offset_left = 482.0
+offset_top = 328.0
+offset_right = 777.0
+offset_bottom = 395.0
+theme_override_fonts/font = ExtResource("1_26cpi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rb1q7")
 text = "START"
 
 [node name="Button2" type="Button" parent="Control"]
@@ -126,6 +135,9 @@ offset_top = 328.0
 offset_right = 408.0
 offset_bottom = 392.0
 theme_override_fonts/font = ExtResource("1_26cpi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rb1q7")
 text = "ULEMISTE VANAKE"
 
 [node name="Button3" type="Button" parent="Control"]
@@ -135,6 +147,9 @@ offset_top = 328.0
 offset_right = 1184.0
 offset_bottom = 392.0
 theme_override_fonts/font = ExtResource("1_26cpi")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
+theme_override_styles/hover = SubResource("StyleBoxFlat_rb1q7")
 text = "POHJA KONN"
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -153,7 +168,11 @@ libraries = {
 autoplay = "rotate"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -0.108103484, 0.9941397, 0, -0.9941397, -0.108103484, -0.2697873, 2.4744449, 6.575474)
+transform = Transform3D(1, 0, 0, 0, 0.41559827, 0.9095483, 0, -0.9095483, 0.41559827, 0.4363991, 1.9421549, 6.8967505)
+light_color = Color(1, 0.38820568, 0.3175169, 1)
+light_energy = 3.249
+shadow_enabled = true
+spot_angle = 59.46
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]

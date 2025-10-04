@@ -44,15 +44,16 @@ public partial class Player : CharacterBody3D
         base._Ready();
         glob = GetNode<Globals>("/root/Globals");
 
+        // this is stupid and a mistake ignore
         if (isPlayerOne)
         {
             charName = glob.p1pick;
-            p1text.Text = glob.p1pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+            p1text.Text = glob.p1pick == "ulemiste" ? "Ülemiste Vanake" : "Põhja Konn";
         }
         else
         {
             charName = glob.p2pick;
-            p2text.Text = glob.p2pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+            p2text.Text = glob.p2pick == "ulemiste" ? "Ülemiste Vanake" : "Põhja Konn";
         }
 
         if (charName == "ulemiste")
@@ -168,16 +169,19 @@ public partial class Player : CharacterBody3D
     {
         if (blockBubble.Visible == true) return;
 
-        hp -= amount;
-        GD.Print($"{Name} took dmg: {amount}");
-        glob.EmitSignal("RefreshHp", Name, amount);
-
-
+        // knock code
         Vector3 direction = (GlobalPosition - enemyPosition).Normalized();
-
         direction.Y = 0;
         direction = direction.Normalized();
-        var strength = 7;
+
+        if (isPlayerOne) glob.p1Multi += amount; 
+        if (!isPlayerOne) glob.p2Multi += amount; 
+        
+
+        var strMulti = isPlayerOne ? glob.p1Multi : glob.p2Multi;
+        var strength = 1 + strMulti;
+        GD.Print("push str ", strength);
+        glob.EmitSignal("RefreshHp", isPlayerOne ? "player1" : "player2");
 
         Vector3 targetPosition = GlobalPosition + (direction * strength);
 
@@ -205,8 +209,8 @@ public partial class Player : CharacterBody3D
 
     private void BlockAttack(bool state)
     {
-        blocking = state;
-        blockBubble.Visible = state;
+        //blocking = state;
+        //blockBubble.Visible = state;
     }
 
     private void _on_slap_animation_finished(string animname)
@@ -281,6 +285,9 @@ public partial class Player : CharacterBody3D
             bool blockingRn = (bool)player.Get("blocking");
 
             if (blockingRn) return;
+
+            
+            player.Call("TakeDmg", 2, this.GlobalPosition);
 
             GetTree().CreateTween().TweenProperty(player, "global_position",
              new Vector3(slapbox.GlobalPosition.X, slapbox.GlobalPosition.Y, slapbox.GlobalPosition.Z), 0.5);
