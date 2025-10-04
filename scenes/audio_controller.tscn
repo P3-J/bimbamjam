@@ -1,3 +1,12 @@
-[gd_scene format=3 uid="uid://c33ouagy55i2"]
+[gd_scene load_steps=2 format=3 uid="uid://deng8imepboky"]
+
+[ext_resource type="Script" uid="uid://20d7cdthsi47" path="res://scripts/AudioController.cs" id="1_41o6r"]
 
 [node name="AudioController" type="Node3D"]
+script = ExtResource("1_41o6r")
+
+[node name="music" type="AudioStreamPlayer" parent="."]
+
+[node name="slap" type="AudioStreamPlayer" parent="."]
+
+[node name="pull" type="AudioStreamPlayer" parent="."]
