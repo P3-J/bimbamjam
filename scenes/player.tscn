@@ -93,6 +93,21 @@ material = SubResource("StandardMaterial3D_smehm")
 radius = 0.3
 height = 0.6
 
+[sub_resource type="Animation" id="Animation_ur7pv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("12268_banjofrog_v1_L3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-0.04793471, -3.2081895, -1.072645)]
+}
+
 [sub_resource type="Animation" id="Animation_smehm"]
 resource_name = "walk"
 loop_mode = 1
@@ -109,76 +124,10 @@ tracks/0/keys = {
 "values": [Vector3(-0.04793471, -3.2081895, -1.072645), Vector3(-0.04793471, -1.7642622, -1.072645), Vector3(-0.04793471, -3.2081895, -1.072645)]
 }
 
-[sub_resource type="Animation" id="Animation_ur7pv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("12268_banjofrog_v1_L3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector3(-0.04793471, -3.2081895, -1.072645)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_y4r1p"]
 _data = {
 &"RESET": SubResource("Animation_ur7pv"),
 &"walk": SubResource("Animation_smehm")
-}
-
-[sub_resource type="Animation" id="Animation_y4r1p"]
-resource_name = "tongue"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("MeshInstance3D:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(-0.15120988, -2.6391795, 2.3921747), Vector3(-0.20071839, -7.8182483, 2.525273)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("MeshInstance3D:scale")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(1, 0.9999994, 0.9999999), Vector3(1, 10, 0.99999994)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../body2/Node3D4/armhitarea/CollisionShape3D:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.19, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector3(-3.7802913, 0, -0.8545542), Vector3(-0.42512226, -1.2264926, -0.8545546), Vector3(10.701297, -1.9630978, -1.7042294)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../body2/Node3D4/armhitarea:monitoring")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.92, 1),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [false, true, true, false]
 }
 
 [sub_resource type="Animation" id="Animation_d2wvv"]
@@ -295,6 +244,57 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector3(0, 3.8156652, 3.2996013), Vector3(-0.671895, 3.8156652, 5.409505)]
+}
+
+[sub_resource type="Animation" id="Animation_y4r1p"]
+resource_name = "tongue"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MeshInstance3D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-0.15120988, -2.6391795, 2.3921747), Vector3(-0.20071839, -7.8182483, 2.525273)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MeshInstance3D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(1, 0.9999994, 0.9999999), Vector3(1, 10, 0.99999994)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../body2/Node3D4/armhitarea/CollisionShape3D:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.19, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector3(-3.7802913, 0, -0.8545542), Vector3(-0.42512226, -1.2264926, -0.8545546), Vector3(10.701297, -1.9630978, -1.7042294)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../../body2/Node3D4/armhitarea:monitoring")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.92, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [false, true, true, false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_3v2ag"]
@@ -767,7 +767,7 @@ height = 7.0
 transparency = 1
 albedo_color = Color(1, 0.3574912, 1, 0.178)
 
-[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "blockBubble", "walkanim", "slapanim", "frogwalk", "frogslap", "frogbody", "ulemistebody")]
+[node name="player" type="CharacterBody3D" node_paths=PackedStringArray("slapbox", "blockBubble", "walkanim", "slapanim", "frogwalk", "frogslap", "frogbody", "ulemistebody", "audioplayer")]
 script = ExtResource("1_g2els")
 slapbox = NodePath("slapbox")
 blockBubble = NodePath("blockbubba")
@@ -777,6 +777,7 @@ frogwalk = NodePath("body3/frogwalk")
 frogslap = NodePath("body3/frogattack")
 frogbody = NodePath("body3")
 ulemistebody = NodePath("body2")
+audioplayer = NodePath("audiomanager")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.05692482, -0.6336858, 0.038740337)
@@ -845,7 +846,7 @@ visible = false
 transform = Transform3D(1.2999258, -0.01225893, 0.006518245, -0.006200869, 0.033456907, 1.2995546, -0.012422503, -1.2995114, 0.033396523, -0.04793471, -3.2081895, -1.072645)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
-transform = Transform3D(1, 9.31322e-10, -6.984918e-10, -9.313226e-10, 0.9999994, 1.1920927e-08, 6.9849193e-10, -1.1920922e-08, 0.9999999, -0.15120988, -2.6391795, 2.3921747)
+transform = Transform3D(1, 9.31322e-10, -6.984918e-10, -9.313226e-10, 0.9999994, 1.1920927e-08, 6.984919e-10, -1.1920922e-08, 0.9999999, -0.15120988, -2.6391795, 2.3921747)
 mesh = SubResource("BoxMesh_smehm")
 
 [node name="eye" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
@@ -923,6 +924,8 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.11894107, 0.98991895, -0.21
 visible = false
 mesh = SubResource("SphereMesh_qlg0r")
 surface_material_override/0 = SubResource("StandardMaterial3D_tuyoq")
+
+[node name="audiomanager" type="AudioStreamPlayer" parent="."]
 
 [connection signal="area_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_area_entered"]
 [connection signal="body_entered" from="body2/Node3D4/armhitarea" to="." method="_on_armhitarea_body_entered"]

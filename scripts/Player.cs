@@ -21,6 +21,7 @@ public partial class Player : CharacterBody3D
     [Export] RichTextLabel p2text;
 
     [Export] public bool isPlayerOne = true; // true = WASD, false = arrows
+    [Export] public AudioStreamPlayer audioplayer;
 
     private string moveLeftAction;
     private string moveRightAction;
@@ -156,6 +157,7 @@ public partial class Player : CharacterBody3D
         {
             canCast = false;
             slapanim.SpeedScale = 2;
+            play_sound("laugh");
 
             if (charName == "ulemiste") slapanim.Play("slap");
             if (charName == "frog") frogslap.Play("slap");
@@ -185,6 +187,20 @@ public partial class Player : CharacterBody3D
                 .SetTrans(Tween.TransitionType.Quad)
                 .SetEase(Tween.EaseType.Out);
 
+    }
+
+    private void play_sound(string Name)
+    {
+
+        switch (Name)
+        {
+            case "laugh":
+                audioplayer.Stream = GD.Load<AudioStream>("res://sound/effects/evil_laugh.mp3");
+                break;
+            default:
+                break;
+        }
+        audioplayer.Play();
     }
 
     private void BlockAttack(bool state)
