@@ -10,6 +10,9 @@ public partial class pickscript : Node3D
     [Export] Button frogbutton;
     [Export] Button Startbutton;
 
+    [Export] SpotLight3D light1;
+    [Export] SpotLight3D light2;
+
     public string phase = "p1";
 
     Globals glob;
@@ -66,9 +69,26 @@ public partial class pickscript : Node3D
             mainlabel.Text = "P2 \n Pick a fighter";
         }
         
+    }
 
+    private void _on_button_2_mouse_entered()
+    {
+        light2.LightEnergy = 3;
+    }
 
+    private void _on_button_2_mouse_exited()
+    {
+        light2.LightEnergy = 0;
+    }
 
+    private void _on_button_3_mouse_entered()
+    {
+        light1.LightEnergy = 3;
+    }
+
+    private void _on_button_3_mouse_exited()
+    {
+        light1.LightEnergy = 0;
     }
 
     private void _on_button_pressed()

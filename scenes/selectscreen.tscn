@@ -87,12 +87,14 @@ _data = {
 &"rotate": SubResource("Animation_2ssj7")
 }
 
-[node name="selectscreen" type="Node3D" node_paths=PackedStringArray("mainlabel", "ulemistebutton", "frogbutton", "Startbutton")]
+[node name="selectscreen" type="Node3D" node_paths=PackedStringArray("mainlabel", "ulemistebutton", "frogbutton", "Startbutton", "light1", "light2")]
 script = ExtResource("1_2ssj7")
 mainlabel = NodePath("Control/Label")
 ulemistebutton = NodePath("Control/Button2")
 frogbutton = NodePath("Control/Button3")
 Startbutton = NodePath("Control/Button")
+light1 = NodePath("light1")
+light2 = NodePath("light2")
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_2ssj7")
@@ -118,10 +120,10 @@ vertical_alignment = 1
 
 [node name="Button" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 482.0
-offset_top = 328.0
-offset_right = 777.0
-offset_bottom = 395.0
+offset_left = 488.0
+offset_top = 392.0
+offset_right = 783.0
+offset_bottom = 459.0
 theme_override_fonts/font = ExtResource("1_26cpi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
@@ -130,10 +132,10 @@ text = "START"
 
 [node name="Button2" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 80.0
-offset_top = 328.0
-offset_right = 408.0
-offset_bottom = 392.0
+offset_left = 88.0
+offset_top = 584.0
+offset_right = 416.0
+offset_bottom = 648.0
 theme_override_fonts/font = ExtResource("1_26cpi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
@@ -142,10 +144,10 @@ text = "ULEMISTE VANAKE"
 
 [node name="Button3" type="Button" parent="Control"]
 layout_mode = 0
-offset_left = 856.0
-offset_top = 328.0
-offset_right = 1184.0
-offset_bottom = 392.0
+offset_left = 864.0
+offset_top = 584.0
+offset_right = 1192.0
+offset_bottom = 648.0
 theme_override_fonts/font = ExtResource("1_26cpi")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_2ssj7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_rb1q7")
@@ -167,13 +169,26 @@ libraries = {
 }
 autoplay = "rotate"
 
-[node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.41559827, 0.9095483, 0, -0.9095483, 0.41559827, 0.4363991, 1.9421549, 6.8967505)
+[node name="light1" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.73510396, 0.6779545, 0, -0.6779545, 0.73510396, 1.3941656, 0.4104879, 8.954216)
 light_color = Color(1, 0.38820568, 0.3175169, 1)
-light_energy = 3.249
+light_energy = 0.0
 shadow_enabled = true
-spot_angle = 59.46
+spot_range = 3.511
+spot_attenuation = -0.9
+
+[node name="light2" type="SpotLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.73510396, 0.6779545, 0, -0.6779545, 0.73510396, -1.7175363, 0.9188454, 8.954216)
+light_color = Color(1, 0.38820568, 0.3175169, 1)
+light_energy = 0.0
+shadow_enabled = true
+spot_range = 3.511
+spot_attenuation = -0.9
 
 [connection signal="pressed" from="Control/Button" to="." method="_on_button_pressed"]
+[connection signal="mouse_entered" from="Control/Button2" to="." method="_on_button_2_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button2" to="." method="_on_button_2_mouse_exited"]
 [connection signal="pressed" from="Control/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="mouse_entered" from="Control/Button3" to="." method="_on_button_3_mouse_entered"]
+[connection signal="mouse_exited" from="Control/Button3" to="." method="_on_button_3_mouse_exited"]
 [connection signal="pressed" from="Control/Button3" to="." method="_on_button_3_pressed"]

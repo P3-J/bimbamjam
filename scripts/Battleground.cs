@@ -46,7 +46,7 @@ public partial class Battleground : Node3D
     {
         base._Process(delta);
 
-        if (p1.GlobalPosition.Y < -25 && !startedReset)
+        if (p1.GlobalPosition.Y < -15 && !startedReset)
         {
             GD.Print("p2 win");
             p1cam.Current = true;
@@ -56,7 +56,7 @@ public partial class Battleground : Node3D
             reloadtimer.Start();
         }
 
-        if (p2.GlobalPosition.Y < -25 && !startedReset)
+        if (p2.GlobalPosition.Y < -15 && !startedReset)
         {
             GD.Print("p1 win");
             startedReset = true;
