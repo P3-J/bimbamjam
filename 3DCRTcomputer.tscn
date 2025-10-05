@@ -1,8 +1,8 @@
 [gd_scene load_steps=45 format=4 uid="uid://cpjmphh8c6g4o"]
 
 [ext_resource type="PackedScene" uid="uid://birfpi64myno4" path="res://assets/Retro Pc.glb" id="1_1ouah"]
-[ext_resource type="Script" uid="uid://dkeksctuyahj3" path="res://Node3DPC.cs" id="1_bh7cf"]
-[ext_resource type="PackedScene" path="res://menu.tscn" id="2_bh7cf"]
+[ext_resource type="Script" uid="uid://dkeksctuyahj3" path="res://scripts/Node3DPC.cs" id="1_bh7cf"]
+[ext_resource type="PackedScene" uid="uid://dv8y67d52w146" path="res://menu.tscn" id="2_bh7cf"]
 [ext_resource type="Shader" uid="uid://cuyt0andxag1k" path="res://shader/battleground.gdshader" id="3_qr3h1"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_hqnkt"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_qr3h1"]
@@ -347,7 +347,7 @@ pixel_size = 115.924
 transform = Transform3D(0.3352636, 0, -4.3932257, 0, 4.4059997, 0, 4.3932257, 0, 0.3352636, -10.59855, 2.0988994, -11.518687)
 
 [node name="Sprite3D2" type="Sprite3D" parent="Retro Pc"]
-transform = Transform3D(0.00032942835, 0, 0.18866019, 0, 0.031845693, 0, -0.027235165, 0, 0.0022819834, 1.8734003, 0.39704308, -1.5312005)
+transform = Transform3D(0.00035687862, 0, 0.16934384, 0, 0.037712388, 0, -0.029504552, 0, 0.002048335, 1.873385, 0.3934584, -1.5236952)
 texture = SubResource("ViewportTexture_i2jjp")
 
 [node name="Camera3D" type="Camera3D" parent="."]

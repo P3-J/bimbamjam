@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3baihqike8dw"]
+
+[ext_resource type="Script" uid="uid://b3ipl4o63f54q" path="res://scripts/audioslider.cs" id="1_l8fhp"]
+
+[sub_resource type="Theme" id="Theme_l8fhp"]
+
+[node name="AudioSliders" type="CanvasLayer"]
+script = ExtResource("1_l8fhp")
+
+[node name="MasterSlider" type="HSlider" parent="."]
+offset_right = 156.47922
+offset_bottom = 88.01956
+scale = Vector2(8.18, 8.18)
+size_flags_horizontal = 3
+size_flags_vertical = 2
+max_value = 1.0
+step = 0.01
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1280.0
+offset_bottom = 720.0
+theme = SubResource("Theme_l8fhp")
