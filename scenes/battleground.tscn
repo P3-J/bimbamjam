@@ -1,4 +1,4 @@
-[gd_scene load_steps=44 format=4 uid="uid://hog128paq7cv"]
+[gd_scene load_steps=45 format=4 uid="uid://hog128paq7cv"]
 
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="1_2fp3l"]
 [ext_resource type="Script" uid="uid://cesbadblti0n4" path="res://scripts/Battleground.cs" id="1_vnb4m"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://b3ukqe0alma6w" path="res://assets/fonts/BoldPixels.ttf" id="9_6yst1"]
 [ext_resource type="Shader" uid="uid://dv0dihm4retbp" path="res://shader/water.gdshader" id="9_60gfh"]
 [ext_resource type="Texture2D" uid="uid://djq2nmdc7or16" path="res://assets/water.png" id="9_h0efe"]
+[ext_resource type="AudioStream" uid="uid://csd43xoqpmmjn" path="res://sound/effects/back_event.mp3" id="11_ln602"]
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_h0efe"]
 panorama = ExtResource("2_walpe")
@@ -286,6 +287,18 @@ tracks/10/keys = {
 "update": 1,
 "values": [true]
 }
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("screm:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
 
 [sub_resource type="Animation" id="Animation_6yst1"]
 resource_name = "startcamera"
@@ -421,6 +434,18 @@ tracks/10/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("screm:playing")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(2.67),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_c7dbr"]
@@ -676,7 +701,7 @@ layout_mode = 0
 offset_left = 328.0
 offset_top = 208.0
 offset_right = 1280.0007
-offset_bottom = 389.00153
+offset_bottom = 389.0016
 theme_override_fonts/normal_font = ExtResource("8_bkg3l")
 theme_override_font_sizes/normal_font_size = 90
 text = "ulemiste vanake"
@@ -702,8 +727,8 @@ z_index = -1
 layout_mode = 0
 offset_left = 336.0
 offset_top = 392.0
-offset_right = 1456.0002
-offset_bottom = 544.001
+offset_right = 1456.0005
+offset_bottom = 544.0011
 theme_override_fonts/normal_font = ExtResource("8_bkg3l")
 theme_override_font_sizes/normal_font_size = 90
 text = "ulemiste vanake"
@@ -757,9 +782,9 @@ vertical_alignment = 1
 [node name="p1hp" type="RichTextLabel" parent="Camera3D/ui"]
 z_index = -1
 layout_mode = 0
-offset_left = -192.0
+offset_left = -120.0
 offset_top = 64.0
-offset_right = 424.0
+offset_right = 496.0
 offset_bottom = 216.00006
 theme_override_colors/default_color = Color(1, 0.02745098, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_6yst1")
@@ -772,9 +797,9 @@ vertical_alignment = 1
 z_index = -1
 layout_mode = 0
 offset_left = 832.0
-offset_top = 72.0
+offset_top = 64.0
 offset_right = 1448.0
-offset_bottom = 224.00006
+offset_bottom = 216.00006
 theme_override_colors/default_color = Color(1, 0.02745098, 0, 1)
 theme_override_fonts/normal_font = ExtResource("9_6yst1")
 theme_override_font_sizes/normal_font_size = 128
@@ -788,6 +813,10 @@ libraries = {
 }
 autoplay = "startcamera"
 speed_scale = 0.2
+
+[node name="screm" type="AudioStreamPlayer" parent="Camera3D"]
+stream = ExtResource("11_ln602")
+volume_db = 10.0
 
 [node name="stuff" type="Node3D" parent="."]
 

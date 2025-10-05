@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://diupiouixvdm4"]
+[gd_scene load_steps=3 format=3 uid="uid://diupiouixvdm4"]
 
 [ext_resource type="Script" uid="uid://dhwkalixpg3hb" path="res://scripts/Globals.cs" id="1_e82qx"]
+[ext_resource type="AudioStream" uid="uid://dd5gaubnqjnpw" path="res://sound/music/laul_1.mp3" id="2_uf85h"]
 
-[node name="globals" type="Node"]
+[node name="globals" type="Node" node_paths=PackedStringArray("bgmusic")]
 script = ExtResource("1_e82qx")
+bgmusic = NodePath("bgmusic")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+
+[node name="bgmusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_uf85h")
+
+[connection signal="finished" from="bgmusic" to="." method="_on_bgmusic_finished"]

@@ -93,6 +93,7 @@ public partial class pickscript : Node3D
 
     private void _on_button_pressed()
     {
+        glob.start_bg_music();
         GetTree().ChangeSceneToFile("res://scenes/battleground.tscn");
     }
 

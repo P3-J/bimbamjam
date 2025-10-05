@@ -206,11 +206,17 @@ public partial class Player : CharacterBody3D
 
     private void play_sound(string Name)
     {
-
+        audioplayer.PitchScale = 1.0f;
+        audioplayer.VolumeDb = 0f;
         switch (Name)
         {
             case "laugh":
                 audioplayer.Stream = GD.Load<AudioStream>("res://sound/effects/evil_laugh.mp3");
+                break;
+            case "hook":
+                audioplayer.Stream = GD.Load<AudioStream>("res://sound/effects/hook.mp3");
+                audioplayer.PitchScale = 1.5f;
+                audioplayer.VolumeDb = -5f;
                 break;
             default:
                 break;
@@ -267,7 +273,7 @@ public partial class Player : CharacterBody3D
 
     public void HookMove(){
         // send out a hitbox carry back anyplayers we hit. Wall check?
-        GD.Print("wtf");
+        play_sound("hook");
 
         if (charName == "ulemiste")
         {

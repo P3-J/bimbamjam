@@ -30,7 +30,7 @@ public partial class Battleground : Node3D
     public override void _Ready()
     {
         base._Ready();
-        
+
 
         glob = GetNode<Globals>("/root/Globals");
         mapSwitcheroo();
@@ -104,6 +104,7 @@ public partial class Battleground : Node3D
         }
 
     }
+    
 
 
 }
