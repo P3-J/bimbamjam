@@ -1,0 +1,73 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpjmphh8c6g4o"]
+
+[ext_resource type="PackedScene" uid="uid://birfpi64myno4" path="res://assets/Retro Pc.glb" id="1_1ouah"]
+[ext_resource type="Script" uid="uid://dkeksctuyahj3" path="res://Node3DPC.cs" id="1_bh7cf"]
+[ext_resource type="PackedScene" uid="uid://dv8y67d52w146" path="res://menu.tscn" id="2_bh7cf"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_1ouah"]
+sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+ground_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
+
+[sub_resource type="Sky" id="Sky_bh7cf"]
+sky_material = SubResource("ProceduralSkyMaterial_1ouah")
+
+[sub_resource type="Environment" id="Environment_i2jjp"]
+background_mode = 2
+sky = SubResource("Sky_bh7cf")
+tonemap_mode = 2
+glow_enabled = true
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_i2jjp"]
+viewport_path = NodePath("SubViewport")
+
+[node name="3DScenePC" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.021676064)
+script = ExtResource("1_bh7cf")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_i2jjp")
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+pixel_size = 115.924
+
+[node name="Retro Pc" parent="." instance=ExtResource("1_1ouah")]
+transform = Transform3D(4.406, 0, 0, 0, 4.406, 0, 0, 0, 4.406, -0.025953494, 0, 0.007776141)
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(-0.033573918, 0, 0.99943626, 0, 1, 0, -0.99943626, 0, -0.033573918, 9.673052, 1.7338612, -6.7678843)
+fov = 108.6
+
+[node name="Sprite3D2" type="Sprite3D" parent="."]
+transform = Transform3D(-0.0051425495, 0, 0.8305339, 0, 0.14031203, 0, -0.11989668, 0, -0.035622854, 8.2274275, 1.7278636, -6.7146754)
+texture = SubResource("ViewportTexture_i2jjp")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+own_world_3d = true
+handle_input_locally = false
+size = Vector2i(1275, 719)
+size_2d_override_stretch = true
+render_target_update_mode = 4
+
+[node name="Menu" parent="SubViewport" instance=ExtResource("2_bh7cf")]
+anchors_preset = -1
+anchor_right = 0.841
+anchor_bottom = 0.88100004
+offset_left = -2.0
+offset_top = 3.0
+offset_right = -0.0020751953
+offset_bottom = -0.18200684
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="SubViewport"]
+texture_filter = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -5.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
