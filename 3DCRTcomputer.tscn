@@ -1,8 +1,8 @@
 [gd_scene load_steps=45 format=4 uid="uid://cpjmphh8c6g4o"]
 
 [ext_resource type="PackedScene" uid="uid://birfpi64myno4" path="res://assets/Retro Pc.glb" id="1_1ouah"]
-[ext_resource type="Script" uid="uid://dkeksctuyahj3" path="res://Node3DPC.cs" id="1_bh7cf"]
-[ext_resource type="PackedScene" path="res://menu.tscn" id="2_bh7cf"]
+[ext_resource type="Script" uid="uid://dkeksctuyahj3" path="res://scripts/Node3DPC.cs" id="1_bh7cf"]
+[ext_resource type="PackedScene" uid="uid://dv8y67d52w146" path="res://menu.tscn" id="2_bh7cf"]
 [ext_resource type="Shader" uid="uid://cuyt0andxag1k" path="res://shader/battleground.gdshader" id="3_qr3h1"]
 [ext_resource type="Script" uid="uid://cwu5cf7a0awcd" path="res://addons/func_godot/src/map/func_godot_map.gd" id="4_hqnkt"]
 [ext_resource type="Resource" uid="uid://bkhxcqsquw1yg" path="res://addons/func_godot/func_godot_default_map_settings.tres" id="5_qr3h1"]
@@ -56,33 +56,6 @@ shader_parameter/clip_warp = false
 shader_parameter/vignette_intensity = 0.4
 shader_parameter/vignette_opacity = 0.5
 
-[sub_resource type="Animation" id="Animation_qr3h1"]
-resource_name = "move_cam"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(3.7532802, 2.6023223, 5.810439), Vector3(-2.9616375, 3.8588355, -2.3092952)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector3(0, 0.69546145, 0), Vector3(0, 0.15591036, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_awawh"]
 length = 0.001
 tracks/0/type = "value"
@@ -108,6 +81,33 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector3(0, 0.69546145, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qr3h1"]
+resource_name = "move_cam"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(3.7532802, 2.6023223, 5.810439), Vector3(-2.9616375, 3.8588355, -2.3092952)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(0, 0.69546145, 0), Vector3(0, 0.15591036, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4775f"]
@@ -272,33 +272,6 @@ points = PackedVector3Array(-3.25, 1, 0, -3.25, 0, 0, -3.5, 1, 0, -3.5, 0, 0, -3
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wbkyd"]
 points = PackedVector3Array(-2, 1, 0, -2, 0, 0, -2.1875, 1, 0, -2.1875, 0, 0, -2, 1, -1.5, -2, 0, -1.5, -2.1875, 1, -1.5, -2.1875, 0, -1.5)
 
-[sub_resource type="Animation" id="Animation_4775f"]
-resource_name = "move"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Camera3D/ColorRect3:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 720), Vector2(0, 380)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Camera3D/ColorRect2:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -392), Vector2(0, 0)]
-}
-
 [sub_resource type="Animation" id="Animation_u7cyf"]
 length = 0.001
 tracks/0/type = "value"
@@ -326,6 +299,33 @@ tracks/1/keys = {
 "values": [Vector2(0, -392)]
 }
 
+[sub_resource type="Animation" id="Animation_4775f"]
+resource_name = "move"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Camera3D/ColorRect3:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 720), Vector2(0, 380)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Camera3D/ColorRect2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -392), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_qsdy0"]
 _data = {
 &"RESET": SubResource("Animation_u7cyf"),
@@ -347,7 +347,7 @@ pixel_size = 115.924
 transform = Transform3D(0.3352636, 0, -4.3932257, 0, 4.4059997, 0, 4.3932257, 0, 0.3352636, -10.59855, 2.0988994, -11.518687)
 
 [node name="Sprite3D2" type="Sprite3D" parent="Retro Pc"]
-transform = Transform3D(0.00032942835, 0, 0.18866019, 0, 0.031845693, 0, -0.027235165, 0, 0.0022819834, 1.8734003, 0.39704308, -1.5312005)
+transform = Transform3D(0.00035687862, 0, 0.16934384, 0, 0.037712388, 0, -0.029504552, 0, 0.002048335, 1.873385, 0.3934584, -1.5236952)
 texture = SubResource("ViewportTexture_i2jjp")
 
 [node name="Camera3D" type="Camera3D" parent="."]
