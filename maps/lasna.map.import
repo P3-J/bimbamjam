@@ -1,0 +1,14 @@
+[remap]
+
+importer="func_godot.map"
+type="Resource"
+uid="uid://dkcxwv7d5cni7"
+path="res://.godot/imported/lasna.map-649df703c29bbc5d544e1f8a075c5ece.tres"
+
+[deps]
+
+source_file="res://maps/lasna.map"
+dest_files=["res://.godot/imported/lasna.map-649df703c29bbc5d544e1f8a075c5ece.tres"]
+
+[params]
+

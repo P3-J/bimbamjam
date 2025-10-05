@@ -892,7 +892,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_qlg0r")
 visible = false
 
 [node name="12268_banjofrog_v1_L3" parent="body3" instance=ExtResource("5_qlg0r")]
-transform = Transform3D(1.2999257, -0.012258945, 0.006518245, -0.0062008677, 0.03345689, 1.2995546, -0.012422522, -1.299511, 0.033396523, -0.04793471, -3.2081895, -1.072645)
+transform = Transform3D(1.2999257, -0.012258944, 0.006518245, -0.0062008677, 0.03345689, 1.2995546, -0.012422522, -1.2995108, 0.033396523, -0.04793471, -3.2081895, -1.072645)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="body3/12268_banjofrog_v1_L3"]
 transform = Transform3D(1, 9.31322e-10, -6.984918e-10, -9.313226e-10, 0.9999994, 1.1920927e-08, 6.984919e-10, -1.1920922e-08, 0.9999999, -0.15120988, -2.6391795, 2.3921747)
