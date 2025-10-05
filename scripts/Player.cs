@@ -35,6 +35,7 @@ public partial class Player : CharacterBody3D
     public bool blocking = false;
     private Globals glob;
     private bool canCast = true;
+    private Vector3 pushDirStr = new Vector3(0,0,0);
 
     private float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
     private Vector3 velocity;
@@ -135,6 +136,13 @@ public partial class Player : CharacterBody3D
             velocity.Z = Mathf.MoveToward(velocity.Z, 0, Speed);
         }
 
+        if (pushDirStr.Length() > 0.1f)
+        {
+            velocity.X = Mathf.Lerp(velocity.X, pushDirStr.X, 0.2f);
+            velocity.Z = Mathf.Lerp(velocity.Z, pushDirStr.Z, 0.2f);
+            pushDirStr = pushDirStr.Lerp(Vector3.Zero, 0.1f); // smoothly fade out knockback
+        }
+
         Velocity = velocity;
         MoveAndSlide();
     }
@@ -169,27 +177,30 @@ public partial class Player : CharacterBody3D
     {
         if (blockBubble.Visible == true) return;
 
-        // knock code
         Vector3 direction = (GlobalPosition - enemyPosition).Normalized();
-        direction.Y = 0;
-        direction = direction.Normalized();
+        direction.Y = 0; 
 
-        if (isPlayerOne) glob.p1Multi += amount; 
-        if (!isPlayerOne) glob.p2Multi += amount; 
-        
+        if (isPlayerOne)
+            glob.p1Multi += amount;
+        else
+            glob.p2Multi += amount;
 
         var strMulti = isPlayerOne ? glob.p1Multi : glob.p2Multi;
-        var strength = 1 + strMulti;
+        var strength = 5f + strMulti * 15; // base + multi + extra
+
         GD.Print("push str ", strength);
-        glob.EmitSignal("RefreshHp", isPlayerOne ? "player1" : "player2");
+        glob.EmitSignal("RefreshHp", isPlayerOne ? "player" : "player2");
 
-        Vector3 targetPosition = GlobalPosition + (direction * strength);
+        pushDirStr = direction * strength;
+        //Velocity = new Vector3(Velocity.X, 2f, Velocity.Z);
 
-        Tween tween = GetTree().CreateTween();
 
-        tween.TweenProperty(this, "global_position", targetPosition, 0.5)
+
+       /*  Tween tween = GetTree().CreateTween(); */
+
+       /*  tween.TweenProperty(this, "global_position", targetPosition, 0.5)
                 .SetTrans(Tween.TransitionType.Quad)
-                .SetEase(Tween.EaseType.Out);
+                .SetEase(Tween.EaseType.Out); */
 
     }
 
