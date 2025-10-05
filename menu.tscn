@@ -1,10 +1,54 @@
-[gd_scene load_steps=18 format=3 uid="uid://dv8y67d52w146"]
+[gd_scene load_steps=24 format=3 uid="uid://dv8y67d52w146"]
 
 [ext_resource type="Script" uid="uid://dhh7ay275tdd6" path="res://scripts/MainMenu.cs" id="1_mae5d"]
 [ext_resource type="Texture2D" uid="uid://bjivpaax11lpb" path="res://assets/kalev_pohjakonn_mainmenu.png" id="1_ouk20"]
 [ext_resource type="FontFile" uid="uid://dxl0xtmlx4yhh" path="res://assets/fonts/Medieval Scroll of Wisdom.ttf" id="2_mae5d"]
 [ext_resource type="Texture2D" uid="uid://bqbo0dph0qjle" path="res://assets/bg_clouds_parallax.png" id="2_ytr4m"]
-[ext_resource type="Texture2D" uid="uid://dr8s8tnl80lmx" path="res://assets/title_mainmenu.png" id="4_4hy44"]
+[ext_resource type="Script" uid="uid://d3nhd5u6ucku6" path="res://scripts/Sky.cs" id="4_ecwwl"]
+[ext_resource type="Texture2D" uid="uid://c6beemfp6udxp" path="res://assets/bg_greenery_parallax.png" id="5_kk3ma"]
+[ext_resource type="Texture2D" uid="uid://wyw8wgtdqimv" path="res://assets/ylemiste_showdown_mainmenu.png" id="7_ecwwl"]
+
+[sub_resource type="Animation" id="Animation_kk3ma"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(859.17, 289)]
+}
+
+[sub_resource type="Animation" id="Animation_ecwwl"]
+resource_name = "moveleft"
+length = 30.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 30),
+"transitions": PackedFloat32Array(0.53588706, 0.36934298),
+"update": 0,
+"values": [Vector2(397.925, 368.09), Vector2(1900, 420)]
+}
+
+[sub_resource type="Animation" id="Animation_nrnbx"]
+resource_name = "moveright"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nrnbx"]
+_data = {
+&"RESET": SubResource("Animation_kk3ma"),
+&"moveleft": SubResource("Animation_ecwwl"),
+&"moveright": SubResource("Animation_nrnbx")
+}
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4hy44"]
 texture = ExtResource("1_ouk20")
@@ -93,7 +137,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2.9666667, 6),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
-"values": [Vector2(0.4, 0.3), Vector2(0.39, 0.293), Vector2(0.4, 0.3)]
+"values": [Vector2(1, 0.8), Vector2(1, 0.8), Vector2(1, 0.8)]
 }
 
 [sub_resource type="Animation" id="Animation_l48gv"]
@@ -122,28 +166,54 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 97.0
+offset_top = 134.0
+offset_right = 97.0
+offset_bottom = 134.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_mae5d")
-
-[node name="BackgroundParallax2D" type="ParallaxBackground" parent="."]
-
-[node name="ParallaxLayer" type="ParallaxLayer" parent="BackgroundParallax2D"]
-
-[node name="SkyParallax" type="Sprite2D" parent="BackgroundParallax2D/ParallaxLayer"]
-texture = ExtResource("2_ytr4m")
-centered = false
 
 [node name="AnimTitle" type="CanvasLayer" parent="."]
 layer = -100
 
 [node name="ColorRect" type="ColorRect" parent="AnimTitle"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.24313726, 1, 1, 1)
+
+[node name="MainMenuBackground" type="Node2D" parent="AnimTitle"]
+
+[node name="Sky" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+texture_filter = 1
+position = Vector2(859.17, 289)
+scale = Vector2(3, 0.955)
+texture = ExtResource("2_ytr4m")
+script = ExtResource("4_ecwwl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="AnimTitle/MainMenuBackground/Sky"]
+libraries = {
+&"": SubResource("AnimationLibrary_nrnbx")
+}
+autoplay = "moveleft"
+speed_scale = 0.5
+
+[node name="Greenery" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+texture_filter = 1
+position = Vector2(582.50006, 332.5)
+scale = Vector2(1.235026, 0.946289)
+texture = ExtResource("5_kk3ma")
+
+[node name="Background" type="Sprite2D" parent="AnimTitle/MainMenuBackground"]
+visible = false
+texture_filter = 1
+position = Vector2(576.00006, 324)
+scale = Vector2(0.75, 0.6328125)
+texture = ExtResource("1_ouk20")
 
 [node name="Background" type="Panel" parent="."]
 visible = false
@@ -160,16 +230,19 @@ layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = -256.0
-offset_right = 456.0
-offset_bottom = -64.0
+offset_left = 72.0
+offset_top = -348.0
+offset_right = 464.0
+offset_bottom = -156.0
 grow_vertical = 0
+focus_mode = 2
 theme_override_constants/separation = 8
 
 [node name="NewButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../ExitButton")
+focus_neighbor_bottom = NodePath("../SettingsButton")
 theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
 theme_override_fonts/font = ExtResource("2_mae5d")
 theme_override_font_sizes/font_size = 30
@@ -178,6 +251,7 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_ytr4m")
 theme_override_styles/hover = SubResource("StyleBoxFlat_mae5d")
 theme_override_styles/hover_pressed = SubResource("StyleBoxEmpty_mae5d")
 theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
+action_mode = 0
 text = "New Game"
 
 [node name="NewButtonShadow" type="Label" parent="VBoxContainer/NewButton"]
@@ -200,9 +274,11 @@ theme_override_fonts/font = ExtResource("2_mae5d")
 theme_override_font_sizes/font_size = 30
 text = "New Game"
 
-[node name="SettingssButton" type="Button" parent="VBoxContainer"]
+[node name="SettingsButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../NewButton")
+focus_neighbor_bottom = NodePath("../ExitButton")
 theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
 theme_override_fonts/font = ExtResource("2_mae5d")
 theme_override_font_sizes/font_size = 30
@@ -215,6 +291,8 @@ text = "Settings"
 [node name="ExitButton" type="Button" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+focus_neighbor_top = NodePath("../SettingsButton")
+focus_neighbor_bottom = NodePath("../NewButton")
 theme_override_colors/font_color = Color(0.8127655, 0.87593174, 0.42558932, 1)
 theme_override_fonts/font = ExtResource("2_mae5d")
 theme_override_font_sizes/font_size = 30
@@ -225,12 +303,16 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_ouk20")
 text = "Exit"
 
 [node name="Title" type="Sprite2D" parent="."]
-position = Vector2(504, 141)
+modulate = Color(0.48394078, 0.553882, 0.93248117, 1)
+self_modulate = Color(1, 0.88073134, 0.92055017, 1)
+position = Vector2(562.5, 188.12)
 scale = Vector2(0.4, 0.3)
-texture = ExtResource("4_4hy44")
+texture = ExtResource("7_ecwwl")
 
 [node name="TitleAnimation" type="AnimationPlayer" parent="Title"]
 libraries = {
 &"": SubResource("AnimationLibrary_ecwwl")
 }
 autoplay = "BreatheTitle"
+
+[connection signal="pressed" from="VBoxContainer/NewButton" to="." method="_on_new_button_pressed"]

@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="bimbamjam"
-run/main_scene="uid://ddbau1qirvb4"
+run/main_scene="uid://dv8y67d52w146"
 config/features=PackedStringArray("4.5", "C#", "Forward Plus")
 config/icon="res://objektid/pildid/icon.svg"
 

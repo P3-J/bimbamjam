@@ -1,0 +1,34 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1rf8qufbjdyg"]
+
+[ext_resource type="Script" uid="uid://c1ub5urek2u5p" path="res://scripts/SceneLoader.cs" id="1_l51bb"]
+[ext_resource type="Script" uid="uid://dw8jo468ku3oq" path="res://scripts/testProgressBar.cs" id="2_2s535"]
+[ext_resource type="PackedScene" uid="uid://by6mgibni2c2f" path="res://scenes/testProgress.tscn" id="3_2s535"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -150.0
+offset_top = -25.0
+offset_right = 150.0
+offset_bottom = 25.0
+grow_horizontal = 2
+grow_vertical = 2
+max_value = 1.0
+script = ExtResource("1_l51bb")
+
+[node name="Node" type="Node" parent="."]
+script = ExtResource("2_2s535")
+testProgress = ExtResource("3_2s535")
