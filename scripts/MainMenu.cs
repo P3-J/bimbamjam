@@ -9,19 +9,17 @@ public partial class MainMenu : Control
 		GetTree().ChangeSceneToFile("res://scenes/selectscreen.tscn");
 	}
 
-
 	[Export] private Button NewButton;
 	[Export] private Button SettingsButton;
 	[Export] private Button ExitButton;
 
 	public override void _Ready()
 	{
-		NewButton.Pressed += OnPlayPressed;
 
-		SettingsButton.Pressed += OnOptionsPressed;
-		ExitButton.Pressed += OnQuitPressed;
+		//SettingsButton.Pressed += OnOptionsPressed;
+		//ExitButton.Pressed += OnQuitPressed;
 
-		NewButton.GrabFocus();
+		//NewButton.GrabFocus();
 	}
 
 	public override void _Input(InputEvent @event)

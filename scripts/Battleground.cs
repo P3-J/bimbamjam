@@ -31,8 +31,10 @@ public partial class Battleground : Node3D
     {
         base._Ready();
 
-
         glob = GetNode<Globals>("/root/Globals");
+        glob.p1Multi = 0;
+        glob.p2Multi = 0;
+
         mapSwitcheroo();
 
         p1wins.Text = glob.p1wins.ToString() + "W";
