@@ -35,6 +35,7 @@ public partial class Player : CharacterBody3D
     public bool blocking = false;
     private Globals glob;
     private bool canCast = true;
+    private Vector3 pushDirStr = new Vector3(0,0,0);
 
     private float gravity = ProjectSettings.GetSetting("physics/3d/default_gravity").AsSingle();
     private Vector3 velocity;
@@ -44,15 +45,16 @@ public partial class Player : CharacterBody3D
         base._Ready();
         glob = GetNode<Globals>("/root/Globals");
 
+        // this is stupid and a mistake ignore
         if (isPlayerOne)
         {
             charName = glob.p1pick;
-            p1text.Text = glob.p1pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+            p1text.Text = glob.p1pick == "ulemiste" ? "Ülemiste Vanake" : "Põhja Konn";
         }
         else
         {
             charName = glob.p2pick;
-            p2text.Text = glob.p2pick == "ulemiste" ? "ulemiste vanake" : "pohjakonn";
+            p2text.Text = glob.p2pick == "ulemiste" ? "Ülemiste Vanake" : "Põhja Konn";
         }
 
         if (charName == "ulemiste")
@@ -134,6 +136,13 @@ public partial class Player : CharacterBody3D
             velocity.Z = Mathf.MoveToward(velocity.Z, 0, Speed);
         }
 
+        if (pushDirStr.Length() > 0.1f)
+        {
+            velocity.X = Mathf.Lerp(velocity.X, pushDirStr.X, 0.2f);
+            velocity.Z = Mathf.Lerp(velocity.Z, pushDirStr.Z, 0.2f);
+            pushDirStr = pushDirStr.Lerp(Vector3.Zero, 0.1f); // smoothly fade out knockback
+        }
+
         Velocity = velocity;
         MoveAndSlide();
     }
@@ -168,34 +177,46 @@ public partial class Player : CharacterBody3D
     {
         if (blockBubble.Visible == true) return;
 
-        hp -= amount;
-        GD.Print($"{Name} took dmg: {amount}");
-        glob.EmitSignal("RefreshHp", Name, amount);
-
-
         Vector3 direction = (GlobalPosition - enemyPosition).Normalized();
+        direction.Y = 0; 
 
-        direction.Y = 0;
-        direction = direction.Normalized();
-        var strength = 7;
+        if (isPlayerOne)
+            glob.p1Multi += amount;
+        else
+            glob.p2Multi += amount;
 
-        Vector3 targetPosition = GlobalPosition + (direction * strength);
+        var strMulti = isPlayerOne ? glob.p1Multi : glob.p2Multi;
+        var strength = 5f + strMulti * 15; // base + multi + extra
 
-        Tween tween = GetTree().CreateTween();
+        GD.Print("push str ", strength);
+        glob.EmitSignal("RefreshHp", isPlayerOne ? "player" : "player2");
 
-        tween.TweenProperty(this, "global_position", targetPosition, 0.5)
+        pushDirStr = direction * strength;
+        //Velocity = new Vector3(Velocity.X, 2f, Velocity.Z);
+
+
+
+       /*  Tween tween = GetTree().CreateTween(); */
+
+       /*  tween.TweenProperty(this, "global_position", targetPosition, 0.5)
                 .SetTrans(Tween.TransitionType.Quad)
-                .SetEase(Tween.EaseType.Out);
+                .SetEase(Tween.EaseType.Out); */
 
     }
 
     private void play_sound(string Name)
     {
-
+        audioplayer.PitchScale = 1.0f;
+        audioplayer.VolumeDb = 0f;
         switch (Name)
         {
             case "laugh":
                 audioplayer.Stream = GD.Load<AudioStream>("res://sound/effects/evil_laugh.mp3");
+                break;
+            case "hook":
+                audioplayer.Stream = GD.Load<AudioStream>("res://sound/effects/hook.mp3");
+                audioplayer.PitchScale = 1.5f;
+                audioplayer.VolumeDb = -5f;
                 break;
             default:
                 break;
@@ -205,8 +226,8 @@ public partial class Player : CharacterBody3D
 
     private void BlockAttack(bool state)
     {
-        blocking = state;
-        blockBubble.Visible = state;
+        //blocking = state;
+        //blockBubble.Visible = state;
     }
 
     private void _on_slap_animation_finished(string animname)
@@ -252,7 +273,7 @@ public partial class Player : CharacterBody3D
 
     public void HookMove(){
         // send out a hitbox carry back anyplayers we hit. Wall check?
-        GD.Print("wtf");
+        play_sound("hook");
 
         if (charName == "ulemiste")
         {
@@ -281,6 +302,9 @@ public partial class Player : CharacterBody3D
             bool blockingRn = (bool)player.Get("blocking");
 
             if (blockingRn) return;
+
+            
+            player.Call("TakeDmg", 2, this.GlobalPosition);
 
             GetTree().CreateTween().TweenProperty(player, "global_position",
              new Vector3(slapbox.GlobalPosition.X, slapbox.GlobalPosition.Y, slapbox.GlobalPosition.Z), 0.5);

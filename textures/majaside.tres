@@ -1,0 +1,8 @@
+[gd_resource type="StandardMaterial3D" load_steps=2 format=3 uid="uid://bkcwvdikplmyb"]
+
+[ext_resource type="Texture2D" uid="uid://d12fscv5kdhp2" path="res://textures/majaside.png" id="1_g0dsj"]
+
+[resource]
+albedo_texture = ExtResource("1_g0dsj")
+metallic_specular = 0.0
+texture_filter = 2
